@@ -31,6 +31,10 @@
     width: 100%;
 }
 
+#cwt_to_top_scrollup.fa:before {
+    font-family: 'FontAwesome'
+}
+
 /* Accessibility - Text meant only for screen readers */
 .screen-reader-text {
     clip: rect(1px, 1px, 1px, 1px);

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Catch Web Tools\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2025-05-13 19:48+0545\n"
-"PO-Revision-Date: 2025-05-13 19:48+0545\n"
+"POT-Creation-Date: 2026-01-20 22:48+0545\n"
+"PO-Revision-Date: 2026-01-20 22:48+0545\n"
 "Last-Translator: Sakin Shrestha <info@catchplugins.com>\n"
 "Language-Team: Valdir Trombini <valdirtrombini@hotmail.com>\n"
 "Language: pt_BR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;esc_attr_e;esc_attr__;_nx\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -201,7 +201,7 @@ msgid "Custom CSS"
 msgstr "Personalizar o CSS"
 
 #: ../admin/inc/core.php:50 ../admin/modules/dashboard.php:133
-#: ../admin/modules/social-icons.php:11
+#: ../admin/modules/social-icons.php:12
 msgid "Social Icons"
 msgstr "Ícones Sociais"
 
@@ -507,7 +507,7 @@ msgid "Enable Open Graph Module"
 msgstr "Ativar o módulo de Open Graph"
 
 #: ../admin/modules/opengraph.php:27 ../admin/modules/seo.php:27
-#: ../admin/modules/social-icons.php:28
+#: ../admin/modules/social-icons.php:29
 msgid "Check to Enable"
 msgstr "Marque aqui para ativar"
 
@@ -653,37 +653,37 @@ msgstr "Focagem na palavras-chave"
 msgid "Author"
 msgstr "Autor"
 
-#: ../admin/modules/social-icons.php:18 ../admin/modules/social-icons.php:23
+#: ../admin/modules/social-icons.php:19 ../admin/modules/social-icons.php:24
 msgid "Enable Social Icons Module"
 msgstr "Ativar o módulo dos ícones sociais"
 
-#: ../admin/modules/social-icons.php:33
+#: ../admin/modules/social-icons.php:34
 msgid "Shortcode"
 msgstr "Códigos resumidos (Shortcode)"
 
-#: ../admin/modules/social-icons.php:35
+#: ../admin/modules/social-icons.php:36
 msgid "The shortcode"
 msgstr "O código resumido"
 
-#: ../admin/modules/social-icons.php:37
+#: ../admin/modules/social-icons.php:38
 msgid "(in the Post/Page content) will enable Social Icons into the Page/Post."
 msgstr ""
 "Vai permitir ícones sociais em páginas e postagens (no conteúdo das "
 "postagens e páginas)"
 
-#: ../admin/modules/social-icons.php:39
+#: ../admin/modules/social-icons.php:40
 msgid "Widget"
 msgstr "Widget"
 
-#: ../admin/modules/social-icons.php:41
+#: ../admin/modules/social-icons.php:42
 msgid "Drag and drop CWT Social Icons Widget to any Sidebar for results."
 msgstr ""
 
-#: ../admin/modules/social-icons.php:43
+#: ../admin/modules/social-icons.php:44
 msgid "In WordPress Template"
 msgstr "No modelo WordPress"
 
-#: ../admin/modules/social-icons.php:45
+#: ../admin/modules/social-icons.php:46
 msgid ""
 "If Catch Web Tools' Social Icons is required in WordPress template, the "
 "following code can be used: "
@@ -691,36 +691,36 @@ msgstr ""
 "Se os ícones sociais do Catch Web Tools for necessário no modelo (template) "
 "WordPress, o código a seguir podem ser usados: "
 
-#: ../admin/modules/social-icons.php:57
+#: ../admin/modules/social-icons.php:58
 msgid "OR"
 msgstr "OR"
 
-#: ../admin/modules/social-icons.php:79
+#: ../admin/modules/social-icons.php:80
 msgid "Social Icons Settings"
 msgstr "Configurações dos ícones sociais"
 
-#: ../admin/modules/social-icons.php:84
+#: ../admin/modules/social-icons.php:85
 msgid "Enable Social Icons Sidebar?"
 msgstr "Você quer ativar os ícones sociais na barra lateral?"
 
-#: ../admin/modules/social-icons.php:86
+#: ../admin/modules/social-icons.php:87
 msgid " Drag and Drop CWT Social Icons widget to any sidebar"
 msgstr ""
 
-#: ../admin/modules/social-icons.php:91
+#: ../admin/modules/social-icons.php:92
 msgid "Social Icon Size (px)"
 msgstr "Tamanho do ícone social na unidade de medida pixel (px)"
 
-#: ../admin/modules/social-icons.php:101
+#: ../admin/modules/social-icons.php:102
 #, fuzzy
 msgid "Enable Social Icon's Brand Color on"
 msgstr "Ativar o módulo dos ícones sociais"
 
-#: ../admin/modules/social-icons.php:118
+#: ../admin/modules/social-icons.php:119
 msgid "Social Icon Color"
 msgstr "Esquema de cores dos ícones sociais"
 
-#: ../admin/modules/social-icons.php:128
+#: ../admin/modules/social-icons.php:129
 #, fuzzy
 msgid "Social Icon Hover Color"
 msgstr "Esquema de cores dos ícones sociais"
@@ -740,9 +740,9 @@ msgstr ""
 msgid "Change Image"
 msgstr ""
 
-#: ../to-top/public/class-to-top-public.php:143
-#: ../to-top/public/class-to-top-public.php:156
-#: ../to-top/public/class-to-top-public.php:169
+#: ../to-top/public/class-to-top-public.php:142
+#: ../to-top/public/class-to-top-public.php:152
+#: ../to-top/public/class-to-top-public.php:162
 msgid "Scroll Up"
 msgstr ""
 

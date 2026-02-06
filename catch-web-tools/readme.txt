@@ -3,8 +3,8 @@ Contributors: catchplugins, catchthemes, sakinshrestha, pratikshrestha, maheshma
 Donate link: https://catchplugins.com/plugins/catch-web-tools/
 Tags: catch-ids, simple, admin, wp-admin, show, ids, post, page, category, media, links, tag, user, widget, seo, search engine optimization, google, alexa, bing, meta keywords, meta description, social icons, github, dribbble, twitter, facebook, googleplus, linkedin, pinterest, flickr, vimeo, youtube, tumblr, instagram, codepen, polldaddy, path, css, open graphs, posts, sidebar, image, images, to-top, arrow, button, icon, link to top, scroll, back to top, scroll to top, scroll top, scroll up, simple scroll to top
 Requires at least: 5.9
-Tested up to: 6.8
-Stable tag: trunk
+Tested up to: 6.9
+Stable tag: 3.0.1
 License: GNU General Public License, version 3 (GPLv3)
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -168,6 +168,17 @@ When a page or post has heaps of content, visitors have to scroll down to read t
 
 == Changelog ==
 
+= 3.0.1 (Released: January 28, 2026) =
+* Bug Fixed: Email, Google Plus and cart icon not rendering on frontend and remove extra http text from a email value.
+* Bug Fixed: Color correction and enqueue font awesome in frontend
+
+= 3.0 (Released: January 20, 2026) =
+* Added: Replace genericons to font-awesome in CWT social icons
+* Added: Twitter X, Bluesky, Twitter, Threads, Discord, Phone, Line, Vk, Xing and Telegram icons
+* Added: Replace genericons to font-awesome in CWT social icons
+* Updated: Update font awesome file to latest in CWT to top
+* Compatibility check up to version 6.9
+
 = 2.7.6 (Released: May 12, 2025) =
 * Compatibility check up to version 6.8
 
@@ -255,8 +266,8 @@ When a page or post has heaps of content, visitors have to scroll down to read t
 * Bug Fixed: undefined index issue Webmaster module
 * Compatibility check up to version 4.9.5
 * Replaced: div with span (Reported by: jacktester)
-* Update: Moved domain from catchthemes.com to catchplugins.com
-* Update: Dashboard panel
+* Updated: Moved domain from catchthemes.com to catchplugins.com
+* Updated: Dashboard panel
 
 = 1.9.8 =
 * Fixed: Webmaster Tools module Header & Footer script
@@ -314,7 +325,7 @@ When a page or post has heaps of content, visitors have to scroll down to read t
 * Changed: Moved all options (CWT Custom CSS and CWT To Top) for Catch Web Tools to Catch Web Tools Plugin panel in customizer
 
 = 1.6.1 =
-* Update: Made the ID column sortable
+* Updated: Made the ID column sortable
 * Code Optimization for Catch IDs
 
 = 1.6 =

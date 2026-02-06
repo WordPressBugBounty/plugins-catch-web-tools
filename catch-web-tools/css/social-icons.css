@@ -1,179 +1,238 @@
 /**
  * CSS for social Icons
  */
-.catchwebtools-social .genericon:hover {
-	text-decoration: none;
-}
+
 
 /* Hover */
-.catchwebtools-social.social-brand-hover .genericon.genericon-feed:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-feed {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-feed:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-feed {
     border-color: #dc622c;
     color: #dc622c;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-codepen:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-codepen {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-codepen:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-codepen {
     border-color: #000;
     color: #000;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-digg:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-digg {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-whatsapp:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-whatsapp {
+    border-color: #25d366;
+    color: #25d366;
+}
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-bluesky:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-bluesky {
+    border-color: #1185fe;
+    color: #1185fe;
+}
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-tiktok:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-tiktok {
+    border-color: #000;
+    color: #000;
+}
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-digg:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-digg {
     border-color: #333;
     color: #333;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-dribbble:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-dribbble {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-x-twitter:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-x-twitter {
+    border-color: #333;
+    color: #333;
+}
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-telegram:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-telegram {
+    border-color: #0088CC;
+    color: #0088CC;
+}
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-behance:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-behance {
+    border-color: #1769ff;
+    color: #1769ff;
+}
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-dribbble:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-dribbble {
     border-color: #ea4c89;
     color: #ea4c89;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-dropbox:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-dropbox {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-dropbox:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-dropbox {
     border-color: #2281cf;
     color: #2281cf;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-facebook:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-facebook {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-facebook:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-facebook {
     border-color: #3b5998;
     color: #3b5998;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-flickr:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-flickr {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-flickr:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-flickr {
     border-color: #ff0084;
     color: #ff0084;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-foursquare:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-foursquare {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-foursquare:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-foursquare {
     border-color: #f94877;
     color: #f94877;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-googleplus:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-googleplus {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-google-plus:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-google-plus {
     border-color: #dd4b39;
     color: #dd4b39;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-github:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-github {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-github:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-github {
     border-color: #4183c4;
     color: #4183c4;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-instagram:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-instagram {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-xing:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-xing {
+    border-color: #026466;
+    color: #026466;
+}
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-threads:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-threads {
+    border-color: #C64F9D;
+    color: #C64F9D;
+}
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-instagram:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-instagram {
     border-color: #3f729b;
     color: #3f729b;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-linkedin:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-linkedin {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-linkedin:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-linkedin {
     border-color: #007bb6;
     color: #007bb6;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-pinterest:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-pinterest {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-pinterest:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-pinterest {
     border-color: #cb2027;
     color: #cb2027;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-getpocket:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-getpocket {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-get-pocket:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-get-pocket {
     border-color: #f13753;
     color: #f13753;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-polldaddy:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-polldaddy {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-polldaddy:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-polldaddy {
     border-color: #bc0b0b;
     color: #bc0b0b;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-reddit:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-reddit {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-reddit:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-reddit {
     border-color: #ff4500;
     color: #ff4500;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-stumbleupon:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-stumbleupon {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-stumbleupon:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-stumbleupon {
     border-color: #eb4924;
     color: #eb4924;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-tumblr:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-tumblr {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-tumblr:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-tumblr {
     border-color: #32506d;
     color: #32506d;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-twitter:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-twitter {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-twitter:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-twitter {
     border-color: #00aced;
     color: #00aced;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-vimeo:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-vimeo {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-vimeo:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-vimeo {
     border-color: #aad450;
     color: #aad450;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-vk:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-vk {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-vk:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-vk {
     border-color: #45668e;
     color: #45668e;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-wordpress:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-wordpress, {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-wordpress:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-wordpress {
     border-color: #21759b;
     color: #21759b;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-youtube:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-youtube {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-youtube:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-youtube {
     border-color: #bb0000;
     color: #bb0000;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-mail:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-mail: {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-mail:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-mail {
     border-color: #1d62f0;
     color: #1d62f0;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-spotify:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-spotify {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-spotify:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-spotify {
     border-color: #81b900;
     color: #81b900;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-twitch:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-twitch {
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-twitch:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-twitch {
     border-color: #6441a5;
     color: #6441a5;
 }
 
-.catchwebtools-social.social-brand-hover .genericon.genericon-website:hover,
-.catchwebtools-social.social-brand-hover .genericon.genericon-phone:hover,
-.catchwebtools-social.social-brand-hover .genericon.genericon-headset:hover,
-.catchwebtools-social.social-brand-hover .genericon.genericon-card:hover,
-.catchwebtools-social.social-brand-hover .genericon.genericon-cloud:hover,
-.catchwebtools-social.social-brand-hover .genericon.genericon-link:hover,
-.catchwebtools-social.social-brand-static .genericon.genericon-website,
-.catchwebtools-social.social-brand-static .genericon.genericon-phone,
-.catchwebtools-social.social-brand-static .genericon.genericon-headset,
-.catchwebtools-social.social-brand-static .genericon.genericon-card,
-.catchwebtools-social.social-brand-static .genericon.genericon-cloud,
-.catchwebtools-social.social-brand-static .genericon.genericon-link,{
-    background-color: #42b41e;
-	border-color: #42b41e;
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-line:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-line {
+    border-color: #00B900;
+    color: #00B900;
+}
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-discord:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-discord {
+    border-color: #5865F2;
+    color: #5865F2;
+}
+
+
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-globe:hover,
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-phone:hover,
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-headset:hover,
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-card:hover,
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-cloud:hover,
+.catchwebtools-social.social-brand-hover .font-awesome.fa.fa-link:hover,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-globe,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-phone,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-headset,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-card,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-cloud,
+.catchwebtools-social.social-brand-static .font-awesome.fa.fa-link {
+    color: #42b41e;
+    border-color: #42b41e;
 }

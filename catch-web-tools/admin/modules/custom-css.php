@@ -32,7 +32,7 @@
                                  <tr>
                                     <th scope="row"><?php _e( 'CSS Tutorial from W3Schools.', 'catch-web-tools' ); ?></th>
                                     <td>
-                                        <a class="button" href="<?php echo esc_url( __( 'http://www.w3schools.com/css/default.asp', 'catch-web-tools' ) ); ?>" title="<?php esc_attr_e( 'CSS Tutorial', 'catch-web-tools' ); ?>" target="_blank"><?php _e( 'Click Here to Read', 'catch-web-tools' );?></a>
+                                        <a class="button" href="<?php echo esc_url( 'http://www.w3schools.com/css/default.asp' ); ?>" title="<?php esc_attr_e( 'CSS Tutorial', 'catch-web-tools' ); ?>" target="_blank"><?php _e( 'Click Here to Read', 'catch-web-tools' );?></a>
                                     </td>
                                 </tr>
                              </tbody>
