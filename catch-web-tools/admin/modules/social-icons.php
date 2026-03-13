@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+if (! defined('ABSPATH')) exit;
+
 /**
  * @package Admin
  * @sub-package Admin Social Icons Display
@@ -9,41 +12,41 @@
 <div id="social">
 	<div class="content-wrapper">
 		<div class="header">
-			<h3><?php _e('Social Icons', 'catch-web-tools'); ?></h3>
+			<h3><?php esc_html_e('Social Icons', 'catch-web-tools'); ?></h3>
 		</div> <!-- .header -->
 		<div class="content">
 			<form method="post" action="options.php">
 				<?php settings_fields('social-icons-group'); ?>
 				<?php $settings = catchwebtools_get_options('catchwebtools_social'); ?>
 				<div class="option-container">
-					<h3 class="option-toggle option-active"><a href="#"><?php _e('Enable Social Icons Module', 'catch-web-tools'); ?></a></h3>
+					<h3 class="option-toggle option-active"><a href="#"><?php esc_html_e('Enable Social Icons Module', 'catch-web-tools'); ?></a></h3>
 					<div class="option-content inside open">
 						<table class="form-table">
 							<tbody>
 								<tr>
-									<th scope="row"><?php _e('Enable Social Icons Module', 'catch-web-tools'); ?></th>
+									<th scope="row"><?php esc_html_e('Enable Social Icons Module', 'catch-web-tools'); ?></th>
 
 									<td>
 										<?php
 										$text = (! empty($settings['status']) && $settings['status']) ? 'checked' : '';
-										echo '<input type="checkbox" ' . $text . ' name="catchwebtools_social[status]" value="1"/>&nbsp;&nbsp;' . __('Check to Enable', 'catch-web-tools');
+										echo '<input type="checkbox" ' . esc_attr($text) . ' name="catchwebtools_social[status]" value="1"/>&nbsp;&nbsp;' . esc_html__('Check to Enable', 'catch-web-tools');
 										echo '<p class="description">'
 										?>
 										<ul>
 											<li>
-												<h4><?php _e('Shortcode', 'catch-web-tools'); ?></h4>
+												<h4><?php esc_html_e('Shortcode', 'catch-web-tools'); ?></h4>
 
-												<?php _e('The shortcode', 'catch-web-tools'); ?>
+												<?php esc_html_e('The shortcode', 'catch-web-tools'); ?>
 												<code>[catchthemes_social_icons]</code>
-												<?php _e('(in the Post/Page content) will enable Social Icons into the Page/Post.', 'catch-web-tools'); ?>
+												<?php esc_html_e('(in the Post/Page content) will enable Social Icons into the Page/Post.', 'catch-web-tools'); ?>
 
-												<h4><?php _e('Widget', 'catch-web-tools'); ?></h4>
+												<h4><?php esc_html_e('Widget', 'catch-web-tools'); ?></h4>
 
-												<?php _e('Drag and drop CWT Social Icons Widget to any Sidebar for results.', 'catch-web-tools'); ?>
+												<?php esc_html_e('Drag and drop CWT Social Icons Widget to any Sidebar for results.', 'catch-web-tools'); ?>
 
-												<h4><?php _e('In WordPress Template', 'catch-web-tools'); ?></h4>
+												<h4><?php esc_html_e('In WordPress Template', 'catch-web-tools'); ?></h4>
 
-												<?php _e('If Catch Web Tools\' Social Icons is required in WordPress template, the following code can be used: ', 'catch-web-tools'); ?>:
+												<?php esc_html_e('If Catch Web Tools\' Social Icons is required in WordPress template, the following code can be used: ', 'catch-web-tools'); ?>:
 
 												<br />
 
@@ -55,7 +58,7 @@
 
 												<br />
 
-												<?php _e('OR', 'catch-web-tools'); ?>
+												<?php esc_html_e('OR', 'catch-web-tools'); ?>
 
 												<br />
 
@@ -77,19 +80,19 @@
 						<?php submit_button('Save Changes'); ?>
 					</div>
 
-					<h3 class="option-toggle"><a href="#"><?php _e('Social Icons Settings', 'catch-web-tools'); ?></a></h3>
+					<h3 class="option-toggle"><a href="#"><?php esc_html_e('Social Icons Settings', 'catch-web-tools'); ?></a></h3>
 					<div class="option-content inside">
 						<table class="form-table">
 							<tbody>
 								<tr>
-									<th scope="row"><?php _e('Enable Social Icons Sidebar?', 'catch-web-tools'); ?></th>
+									<th scope="row"><?php esc_html_e('Enable Social Icons Sidebar?', 'catch-web-tools'); ?></th>
 									<td>
-										<a class="button" href="<?php echo admin_url('widgets.php'); ?>" title="<?php esc_attr_e(' Drag and Drop CWT Social Icons widget to any sidebar', 'catch-web-tools'); ?>"><?php _e(' Drag and Drop CWT Social Icons widget to any sidebar', 'catch-web-tools'); ?></a>
+										<a class="button" href="<?php echo esc_url(admin_url('widgets.php')); ?>" title="<?php esc_attr_e(' Drag and Drop CWT Social Icons widget to any sidebar', 'catch-web-tools'); ?>"><?php esc_html_e(' Drag and Drop CWT Social Icons widget to any sidebar', 'catch-web-tools'); ?></a>
 									</td>
 								</tr>
 
 								<tr>
-									<th scope="row"><?php _e('Social Icon Size (px)', 'catch-web-tools'); ?></th>
+									<th scope="row"><?php esc_html_e('Social Icon Size (px)', 'catch-web-tools'); ?></th>
 									<td>
 										<?php
 										$text = (! empty($settings['social_icon_size']) && $settings['social_icon_size'] != '') ? $settings['social_icon_size'] : '32';
@@ -99,7 +102,7 @@
 								</tr>
 
 								<tr>
-									<th scope="row"><?php _e('Enable Social Icon\'s Brand Color on', 'catch-web-tools'); ?></th>
+									<th scope="row"><?php esc_html_e('Enable Social Icon\'s Brand Color on', 'catch-web-tools'); ?></th>
 
 									<td>
 										<?php
@@ -116,7 +119,7 @@
 
 
 								<tr id="catchwebtools_social_color_main">
-									<th scope="row"><?php _e('Social Icon Color', 'catch-web-tools'); ?></th>
+									<th scope="row"><?php esc_html_e('Social Icon Color', 'catch-web-tools'); ?></th>
 									<td>
 										<?php
 										$text = (! empty($settings['social_icon_color']) && $settings['social_icon_color'] != '') ? $settings['social_icon_color'] : '#504f4f';
@@ -126,7 +129,7 @@
 								</tr>
 
 								<tr id="catchwebtools_social_color_hover_main">
-									<th scope="row"><?php _e('Social Icon Hover Color', 'catch-web-tools'); ?></th>
+									<th scope="row"><?php esc_html_e('Social Icon Hover Color', 'catch-web-tools'); ?></th>
 									<td>
 										<?php
 										$text = (! empty($settings['social_icon_hover_color']) && $settings['social_icon_hover_color'] != '') ? $settings['social_icon_hover_color'] : '#504f4f';
@@ -162,27 +165,26 @@
 
 							foreach ($catchwebtools_social_icons as $key => $value) {
 							?>
-							<?php
+								<?php
 								$text = (! empty($settings[$key]) && '' != $settings[$key]) ? $settings[$key] : '';
 								$phone = preg_replace('/[^0-9\+]/', '', $text);
+								$fa_style     = 'fa-brands';
+								$href         = '';
+								$input_value  = $text;
+								$extra_attr   = '';
 
-								if ('email' == $key) {
-									$output .= '<div class="icon-info">
-									<div class="icon-name">
-										<a class="font-awesome fa fa-solid fa-' . sanitize_key($value['fa_class']) . '"
-										title="' . esc_attr($value['label']) . '"
-										href="mailto:' . antispambot(sanitize_email(str_ireplace(['http://', 'https://'], '', $text))) . '">
-											<span class="screen-reader-text">' . esc_attr($value['label']) . '</span>
-										</a>' .
-										'<p>' . esc_attr($value['label']) . '</p></div>										
-									<input type="text" size="80" name="catchwebtools_social[' . $key . ']" value="' . esc_attr(str_ireplace(['http://', 'https://'], '', $text)) . '"/></div>';
+
+								if ('email' === $key) {
+									$fa_style     = 'fa-solid';
+									$clean_email = sanitize_email(str_ireplace(array('http://', 'https://'), '', $text));
+									$href         = 'mailto:' . antispambot($clean_email);;
+									$input_value  = str_ireplace(array('http://', 'https://'), '', $text);
+									$extra_attr   = '';
 								} elseif ('phone' == $key || 'handset' == $key || 'mobile' == $key) {
 
-									$output .= '<div class="icon-info">
-									<div class="icon-name">
-									<a class="font-awesome fa fa-solid fa-' . sanitize_key($value['fa_class']) . '" title="' . esc_attr($value['label']) . '" href="' . esc_url('tel:' . $phone) . '"><span class="screen-reader-text">' . esc_attr($value['label']) . '</span> </a>' .
-										'<p>' . esc_attr($value['label']) . '</p></div>
-									<input type="text" size="80" name="catchwebtools_social[' . $key . ']" value="' .  preg_replace('/[^0-9\+\-\(\)\s]/', '', $text) . '"/></div>';
+									$fa_style    = 'fa-solid';
+									$href        = 'tel:' . $phone;
+									$input_value = preg_replace('/[^0-9\+\-\(\)\s]/', '', $text);
 								} elseif (
 									'website' == $key
 									|| 'feed' == $key
@@ -190,19 +192,33 @@
 									|| 'cloud' == $key
 									|| 'link' == $key
 								) {
-									$output .= '<div class="icon-info">
-									<div class="icon-name">
-									<a class="font-awesome fa fa-solid fa-' . sanitize_key($value['fa_class']) . '" target="_blank" title="' . esc_attr($value['label']) . '" href="' . '"><span class="screen-reader-text">' . esc_attr($value['label']) . '</span> </a>' . '<p>' . esc_attr($value['label']) . '</p></div>
-									<input type="text" size="80" name="catchwebtools_social[' . $key . ']" value="' . esc_attr($text) . '"/></div>';
+									$fa_style = 'fa-solid';
+									$extra_attr = ' target="_blank"';
 								} else {
-									$output .= '<div class="icon-info">
-									<div class="icon-name">
-									<a class="font-awesome fa fa-brands fa-' . sanitize_key($value['fa_class']) . '" target="_blank" title="' . esc_attr($value['label']) . '" href="' . '"><span class="screen-reader-text">' . esc_attr($value['label']) . '</span> </a>' .
-										'<p>' . esc_attr($value['label']) . '</p></div>
-									<input type="text" size="80" name="catchwebtools_social[' . $key . ']" value="' . esc_attr($text) . '"/></div>';
+									$extra_attr = ' target="_blank"';
 								}
+								?>
+								<div class="icon-info">
+									<div class="icon-name">
+										<a class="font-awesome fa <?php echo esc_attr($fa_style); ?> fa-<?php echo esc_attr(sanitize_key($value['fa_class'])); ?>"
+											title="<?php echo esc_attr($value['label']); ?>"
+											href="<?php echo esc_url($href); ?>" <?php echo esc_attr($extra_attr); ?>>
+
+											<span class="screen-reader-text">
+												<?php echo esc_html($value['label']); ?>
+											</span>
+										</a>
+
+										<p><?php echo esc_html($value['label']); ?></p>
+									</div>
+
+									<input type="text"
+										size="80"
+										name="catchwebtools_social[<?php echo esc_attr($key); ?>]"
+										value="<?php echo esc_attr($input_value); ?>" />
+								</div>
+							<?php
 							}
-							echo $output;
 							?>
 						</div>
 						<?php submit_button('Save Changes'); ?>

@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+if (! defined('ABSPATH')) exit;
+
 /**
  * @package Frontend
  * @sub-package Custom Css
@@ -12,6 +15,7 @@
 function catchwebtools_custom_css_display()
 {
 	//delete_transient( 'catchwebtools_custom_css' );
+
 	if (! $output = get_transient('catchwebtools_custom_css')) {
 		$output = '';
 

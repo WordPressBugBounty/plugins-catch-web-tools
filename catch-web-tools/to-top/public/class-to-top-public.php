@@ -10,16 +10,7 @@
  * @subpackage To_Top/public
  */
 
-/**
- * The public-facing functionality of the plugin.
- *
- * Defines the plugin name, version, and two examples hooks for how to
- * enqueue the admin-specific stylesheet and JavaScript.
- *
- * @package    To_Top
- * @subpackage To_Top/public
- * @author     Catch Plugins <info@catchplugins.com>
- */
+
 class Catchwebtools_To_Top_Public
 {
 
@@ -139,7 +130,7 @@ class Catchwebtools_To_Top_Public
 			}
 
 			if ('icon' == $option['style']) {
-				echo '<span id="cwt_to_top_scrollup" class="dashicons ' . esc_attr($option['icon_type']) . '"><span class="screen-reader-text">' . __('Scroll Up', 'to-top') . '</span></span>';
+				echo '<span id="cwt_to_top_scrollup" class="dashicons ' . esc_attr($option['icon_type']) . '"><span class="screen-reader-text">' . esc_html__('Scroll Up', 'catch-web-tools') . '</span></span>';
 			} else if ('genericon-icon' == $option['style']) {
 				if ('dashicons-arrow-up' == $option['icon_type']) {
 					$class = 'genericon genericon-uparrow';
@@ -149,7 +140,7 @@ class Catchwebtools_To_Top_Public
 					$class = 'genericon genericon-collapse';
 				}
 
-				echo '<span id="cwt_to_top_scrollup" class="' . esc_attr($class) . '"><span class="screen-reader-text">' . __('Scroll Up', 'to-top') . '</span></span>';
+				echo '<span id="cwt_to_top_scrollup" class="' . esc_attr($class) . '"><span class="screen-reader-text">' . esc_html__('Scroll Up', 'catch-web-tools') . '</span></span>';
 			} else if ('font-awesome-icon' == $option['style']) {
 				if ('dashicons-arrow-up' == $option['icon_type']) {
 					$class = 'fa fa-caret-up';
@@ -159,7 +150,7 @@ class Catchwebtools_To_Top_Public
 					$class = 'fa fa-angle-up';
 				}
 
-				echo '<span id="cwt_to_top_scrollup" class="' .  esc_attr($class) . '"><span class="screen-reader-text">' . __('Scroll Up', 'to-top') . '</span></span>';
+				echo '<span id="cwt_to_top_scrollup" class="' .  esc_attr($class) . '"><span class="screen-reader-text">' . esc_html__('Scroll Up', 'catch-web-tools') . '</span></span>';
 			} else {
 				if ('' != $option['image']) {
 					/**
@@ -229,10 +220,16 @@ class Catchwebtools_To_Top_Public
 			}
 		}
 
-		if ('' != $custom_css) {
-			$custom_css = "<!-- CWT To Top Custom CSS --><style type='text/css'>#cwt_to_top_scrollup {" . $custom_css . "}</style>";
+		if (! empty($custom_css)) {
+
+			$custom_css = wp_strip_all_tags($custom_css);
+
+			echo "<!-- Custom CSS -->\n";
+			echo "<style type='text/css'>\n";
+			echo "#cwt_to_top_scrollup { " . esc_html($custom_css) . " }\n";
+			echo "</style>\n";
 		}
 
-		echo $custom_css;
+		// echo $custom_css;
 	}
 }

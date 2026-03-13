@@ -4,9 +4,9 @@ Donate link: https://catchplugins.com/plugins/catch-web-tools/
 Tags: catch-ids, simple, admin, wp-admin, show, ids, post, page, category, media, links, tag, user, widget, seo, search engine optimization, google, alexa, bing, meta keywords, meta description, social icons, github, dribbble, twitter, facebook, googleplus, linkedin, pinterest, flickr, vimeo, youtube, tumblr, instagram, codepen, polldaddy, path, css, open graphs, posts, sidebar, image, images, to-top, arrow, button, icon, link to top, scroll, back to top, scroll to top, scroll top, scroll up, simple scroll to top
 Requires at least: 5.9
 Tested up to: 6.9
-Stable tag: 3.0.1
-License: GNU General Public License, version 3 (GPLv3)
-License URI: http://www.gnu.org/licenses/gpl-3.0.txt
+Stable tag: 3.1
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 A top-notch modular plugin that can greatly enhance the capabilities of a WordPress website with its powerful features.
 
@@ -167,6 +167,13 @@ When a page or post has heaps of content, visitors have to scroll down to read t
 
 
 == Changelog ==
+
+= 3.1 (Released: March 13, 2026) =
+* Bug Fixed: WordPress.Security.SafeRedirect.wp_redirect_wp_redirect
+* Bug Fixed: WordPress.WP.AlternativeFunctions.strip_tags_strip_tags
+* Bug Fixed: WordPress.Security.EscapeOutput.OutputNotEscaped
+* Bug Fixed: WordPress.WP.I18n.MissingTranslatorsComment
+* Bug Fixed: WordPress.WP.I18n.TextDomainMismatch
 
 = 3.0.1 (Released: January 28, 2026) =
 * Bug Fixed: Email, Google Plus and cart icon not rendering on frontend and remove extra http text from a email value.

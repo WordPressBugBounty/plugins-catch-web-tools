@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+if (! defined('ABSPATH')) exit;
+
 /**
  * @package Frontend
  */
@@ -118,14 +121,14 @@ class CatchWebToolsSocialIcons extends WP_Widget
 			$title = apply_filters('widget_title', $instance['title']);
 		}
 
-		echo $args['before_widget'];
+		echo wp_kses_post($args['before_widget']);
 		if (! empty($title)) {
-			echo $args['before_title'] . $title . $args['after_title'];
+			echo wp_kses_post($args['before_title']) . esc_html($title) . wp_kses_post($args['after_title']);
 		}
 
-		echo catchwebtools_get_social_icons();
+		echo wp_kses_post(catchwebtools_get_social_icons());
 
-		echo $args['after_widget'];
+		echo wp_kses_post($args['after_widget']);
 	}
 
 	/**
@@ -144,8 +147,8 @@ class CatchWebToolsSocialIcons extends WP_Widget
 		}
 ?>
 		<p>
-			<label for="<?php echo $this->get_field_name('title'); ?>"><?php esc_html_e('Title (optional):', 'catch-web-tools'); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+			<label for="<?php echo esc_attr($this->get_field_name('title')); ?>"><?php esc_html_e('Title (optional):', 'catch-web-tools'); ?></label>
+			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 		</p>
 <?php
 	}
@@ -162,8 +165,9 @@ class CatchWebToolsSocialIcons extends WP_Widget
 	 */
 	public function update($new_instance, $old_instance)
 	{
-		$instance          = array();
-		$instance['title'] = (! empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
+
+		$instance = array();
+		$instance['title'] = ! empty($new_instance['title']) ? sanitize_text_field($new_instance['title']) : '';
 		return $instance;
 	}
 }
@@ -189,5 +193,5 @@ if ($social_settings['status']) {
  */
 function catchwebtools_social_icons()
 {
-	echo catchwebtools_get_social_icons();
+	echo wp_kses_post(catchwebtools_get_social_icons());
 }

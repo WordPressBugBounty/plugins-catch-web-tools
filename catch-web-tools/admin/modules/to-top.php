@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+if (! defined('ABSPATH')) exit;
+
 /**
  * Provide a admin area view for the plugin
  *
@@ -17,7 +20,7 @@
 <div id="to_top_main">
     <div class="content-wrapper">
         <div class="header">
-            <h3><?php _e('To Top', 'catch-web-tools'); ?></h3>
+            <h3><?php esc_html_e('To Top', 'catch-web-tools'); ?></h3>
         </div> <!-- .header -->
         <div class="content">
             <?php
@@ -31,11 +34,11 @@
                         </div><!-- .module-header -->
                         <div class="module-content">
                             <p class="notice notice-warning">
-                                <?php _e('This module is currently disabled since To Top standalone plugin is already active on your site. If you want to configure the To Top please click on the following link.', 'catch-web-tools'); ?>
+                                <?php esc_html_e('This module is currently disabled since To Top standalone plugin is already active on your site. If you want to configure the To Top please click on the following link.', 'catch-web-tools'); ?>
                             </p>
                             <?php
                             $settings_link = '<a style="margin-top: 10px; display: inline-block;" href="' . esc_url(admin_url('admin.php?page=to-top')) . '">' . esc_html__('To Top', 'catch-web-tools') . '</a>';
-                            echo $settings_link;
+                            echo wp_kses_post($settings_link);
                             ?>
                         </div><!-- .module-content -->
                     </div><!-- .catch-modules -->
@@ -125,7 +128,7 @@
 
                                         <td>
                                             <?php
-                                            echo '<input type="text" class="catchwebtools_to_top_options_icon_color" name="catchwebtools_to_top_options[icon_color]" value="' . sanitize_text_field($settings['icon_color']) . '"/>';
+                                            echo '<input type="text" class="catchwebtools_to_top_options_icon_color" name="catchwebtools_to_top_options[icon_color]" value="' . esc_attr(sanitize_text_field($settings['icon_color'])) . '"/>';
                                             ?>
                                         </td>
                                     </tr>
@@ -135,7 +138,7 @@
 
                                         <td>
                                             <?php
-                                            echo '<input type="text" class="catchwebtools_to_top_options_icon_bg_color" name="catchwebtools_to_top_options[icon_bg_color]" value="' . sanitize_text_field($settings['icon_bg_color']) . '"/>';
+                                            echo '<input type="text" class="catchwebtools_to_top_options_icon_bg_color" name="catchwebtools_to_top_options[icon_bg_color]" value="' . esc_attr(sanitize_text_field($settings['icon_bg_color'])) . '"/>';
                                             ?>
                                         </td>
                                     </tr>
@@ -144,7 +147,7 @@
                                         <th scope="row"><?php esc_html_e('Icon Size (px)', 'catch-web-tools'); ?></th>
                                         <td>
                                             <?php
-                                            echo '<input min="0" type="number" id="catchwebtools_to_top_options_icon_size" name="catchwebtools_to_top_options[icon_size]" value="' . absint($settings['icon_size']) . '"/>px';
+                                            echo '<input min="0" type="number" id="catchwebtools_to_top_options_icon_size" name="catchwebtools_to_top_options[icon_size]" value="' . esc_attr(absint($settings['icon_size'])) . '"/>px';
                                             ?>
                                         </td>
                                     </tr>
@@ -153,7 +156,7 @@
                                         <th scope="row"><?php esc_html_e('Border Radius (%)', 'catch-web-tools'); ?></th>
                                         <td>
                                             <?php
-                                            echo '<input min="0" max="50" type="number" id="catchwebtools_to_top_options_border_radius" name="catchwebtools_to_top_options[border_radius]" value="' . absint($settings['border_radius']) . '"/>%';
+                                            echo '<input min="0" max="50" type="number" id="catchwebtools_to_top_options_border_radius" name="catchwebtools_to_top_options[border_radius]" value="' . esc_attr(absint($settings['border_radius'])) . '"/>%';
 
                                             echo '<p class="description">' . esc_html__('0 will make the icon background square, 50 will make it a circle', 'catch-web-tools') . '</p>';
                                             ?>
@@ -189,7 +192,7 @@
                                         <th scope="row"><?php esc_html_e('Image Alt', 'catch-web-tools'); ?></th>
                                         <td>
                                             <?php
-                                            echo '<input type="text" size="65" id="catchwebtools_to_top_options[image_alt]" name="catchwebtools_to_top_options[image_alt]" value="' . sanitize_text_field($settings['image_alt']) . '"/>';
+                                            echo '<input type="text" size="65" id="catchwebtools_to_top_options[image_alt]" name="catchwebtools_to_top_options[image_alt]" value="' . esc_attr(sanitize_text_field($settings['image_alt'])) . '"/>';
                                             ?>
                                         </td>
                                     </tr>
