@@ -14,7 +14,7 @@ if (! defined('ABSPATH')) exit;
 function catchwebtools_enqueue_genericons()
 {
 	$social_settings = catchwebtools_get_options('catchwebtools_social');
-	wp_enqueue_style('cwt-maintainace', CATCHWEBTOOLS_URL . 'css/maintainance-message.css', array(), '6.7.2', 'all');
+	// wp_enqueue_style('cwt-maintainace', CATCHWEBTOOLS_URL . 'css/maintainance-message.css', array(), '6.7.2', 'all');
 
 	if ($social_settings['status']) {
 		// Font Awesome
@@ -29,6 +29,7 @@ function catchwebtools_enqueue_genericons()
 		}
 	}
 }
+
 
 
 add_action('wp_enqueue_scripts', 'catchwebtools_enqueue_genericons');

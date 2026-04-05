@@ -163,7 +163,7 @@ if (! defined('ABSPATH')) exit;
                                         $text    =    (! empty($settings['og:default_image'])) ? esc_attr($settings['og:default_image']) : '';
                                         echo '
                                                 <input type="url" class="upload-url" size="80" name="catchwebtools_opengraph[og:default_image]" value="' . esc_attr($text) . '" />
-                                                <input id="st_upload_button" class="st_upload_button button" name="catchwebtools_opengraph[og:default_image]" type="button" value="' . esc_attr('Upload', 'catch-web-tools') . '" />';
+                                                <input id="st_upload_button" class="st_upload_button button" name="catchwebtools_opengraph[og:default_image]" type="button" value="' . esc_attr__('Upload', 'catch-web-tools') . '" />';
                                         echo '<p class="description">' . esc_html__('This image is used if the post/page being shared does not contain any images.', 'catch-web-tools') . '</p>';
                                         ?>
                                     </td>

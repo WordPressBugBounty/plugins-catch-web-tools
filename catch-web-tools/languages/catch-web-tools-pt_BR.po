@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Catch Web Tools\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2026-03-13 21:47+0545\n"
-"PO-Revision-Date: 2026-03-13 21:47+0545\n"
+"POT-Creation-Date: 2026-04-05 14:04+0545\n"
+"PO-Revision-Date: 2026-04-05 14:04+0545\n"
 "Last-Translator: Sakin Shrestha <info@catchplugins.com>\n"
 "Language-Team: Valdir Trombini <valdirtrombini@hotmail.com>\n"
 "Language: pt_BR\n"
@@ -237,6 +237,10 @@ msgid ""
 "Caution!!! You do not have the current version of WordPress installed. The "
 "Current version is %1$s. Your installation version is %2$s Please update it "
 "%3$shere%4$s."
+msgstr ""
+
+#: ../admin/modules/opengraph.php:166
+msgid "Upload"
 msgstr ""
 
 #: ../admin/modules/social-icons.php:90

@@ -5,7 +5,7 @@
  * Description: Catch Web Tools is a modular plugin that powers up your WordPress site with simple and utilitarian features. It currently offers Webmaster Tool, Open Graph, Custom CSS, Social Icons, Security, Updator and Basic SEO optimization modules with more addition in updates to come.
  * Author: Catch Plugins
  * Author URI:  https://catchplugins.com/
- * Version: 3.1
+ * Version: 3.2
  * License: GPL-3.0+
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
  * Requires at least: 5.9
@@ -23,10 +23,9 @@ if (! defined('ABSPATH')) {
 	exit;
 }
 
-
 // Define Version
 if (! defined('CATCHWEBTOOLS_VERSION')) {
-	define('CATCHWEBTOOLS_VERSION', '3.1');
+	define('CATCHWEBTOOLS_VERSION', '3.2');
 }
 
 // The URL of the directory that contains the plugin
@@ -34,18 +33,15 @@ if (! defined('CATCHWEBTOOLS_URL')) {
 	define('CATCHWEBTOOLS_URL', plugin_dir_url(__FILE__));
 }
 
-
 // The absolute path of the directory that contains the file
 if (! defined('CATCHWEBTOOLS_PATH')) {
 	define('CATCHWEBTOOLS_PATH', plugin_dir_path(__FILE__));
 }
 
-
 // Gets the path to a plugin file or directory, relative to the plugins directory, without the leading and trailing slashes.
 if (! defined('CATCHWEBTOOLS_BASENAME')) {
 	define('CATCHWEBTOOLS_BASENAME', plugin_basename(__FILE__));
 }
-
 
 /**
  * Make plugin available for translation
@@ -56,7 +52,6 @@ function catchwebtools_load_textdomain()
 	load_plugin_textdomain('catch-web-tools', false, basename(dirname(__FILE__)) . '/languages/');
 }
 add_action('init', 'catchwebtools_load_textdomain', 1);
-
 
 /**
  * Compare PHP Version
@@ -114,10 +109,8 @@ function catchwebtools_get_options($field)
 // Include default options
 require_once(CATCHWEBTOOLS_PATH . '/admin/inc/default-options.php');
 
-
 // Include Admin functions
 require_once CATCHWEBTOOLS_PATH . '/admin/admin-functions.php';
-
 
 // Include Frontend functions
 require_once CATCHWEBTOOLS_PATH . '/frontend/frontend-functions.php';
@@ -144,8 +137,6 @@ function catchwebtools_action_links($links, $plugin_file)
 	return $links;
 }
 add_filter('plugin_action_links', 'catchwebtools_action_links', 10, 2);
-
-
 
 /* CTP tabs removal options */
 require plugin_dir_path(__FILE__) . 'admin/inc/ctp-tabs-removal.php';
