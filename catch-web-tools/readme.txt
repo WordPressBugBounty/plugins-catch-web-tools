@@ -4,7 +4,7 @@ Donate link: https://catchplugins.com/plugins/catch-web-tools/
 Tags: catch-ids, simple, admin, wp-admin, show, ids, post, page, category, media, links, tag, user, widget, seo, search engine optimization, google, alexa, bing, meta keywords, meta description, social icons, github, dribbble, twitter, facebook, googleplus, linkedin, pinterest, flickr, vimeo, youtube, tumblr, instagram, codepen, polldaddy, path, css, open graphs, posts, sidebar, image, images, to-top, arrow, button, icon, link to top, scroll, back to top, scroll to top, scroll top, scroll up, simple scroll to top
 Requires at least: 5.9
 Tested up to: 7.0
-Stable tag: 3.2
+Stable tag: 3.2.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -167,6 +167,9 @@ When a page or post has heaps of content, visitors have to scroll down to read t
 
 
 == Changelog ==
+
+= 3.2.1 (Released: April 11, 2026) =
+* Bug Fixed: Attributes not added in script tags and conditionally rendering Comments
 
 = 3.2 (Released: April 05, 2026) =
 * Bug Fixed: Added esc_attr__ for escapes it for a safe use

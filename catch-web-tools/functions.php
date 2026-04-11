@@ -5,7 +5,7 @@
  * Description: Catch Web Tools is a modular plugin that powers up your WordPress site with simple and utilitarian features. It currently offers Webmaster Tool, Open Graph, Custom CSS, Social Icons, Security, Updator and Basic SEO optimization modules with more addition in updates to come.
  * Author: Catch Plugins
  * Author URI:  https://catchplugins.com/
- * Version: 3.2
+ * Version: 3.2.1
  * License: GPL-3.0+
  * License URI: http://www.gnu.org/licenses/gpl-3.0.txt
  * Requires at least: 5.9
@@ -25,7 +25,7 @@ if (! defined('ABSPATH')) {
 
 // Define Version
 if (! defined('CATCHWEBTOOLS_VERSION')) {
-	define('CATCHWEBTOOLS_VERSION', '3.2');
+	define('CATCHWEBTOOLS_VERSION', '3.2.1');
 }
 
 // The URL of the directory that contains the plugin

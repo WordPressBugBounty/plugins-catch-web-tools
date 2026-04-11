@@ -19,6 +19,8 @@ function catchwebtools_seo_display()
 	$output       =	'';
 
 	if ($seo_settings['status']) {
+		// $output .= "<!-- CWT SEO -->";
+
 		if (is_home() || is_front_page() || is_archive()) {
 			$seo_description	=	(isset($seo_settings["description"]) && $seo_settings["description"] != '') ? $seo_settings["description"] : get_bloginfo("description");
 

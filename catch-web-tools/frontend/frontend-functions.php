@@ -1,6 +1,9 @@
 <?php
 
 // Exit if accessed directly
+
+use Mpdf\Tag\I;
+
 if (! defined('ABSPATH')) exit;
 
 /**
@@ -112,12 +115,21 @@ function catchwebtools_get_header_information()
 		),
 	);
 
-	echo '<!-- This site is optimized with the Catch Web Tools v' . esc_html(CATCHWEBTOOLS_VERSION) . ' - https://catchplugins.com/plugins/catch-web-tools/ -->' . PHP_EOL;
-	echo '<!-- CWT Webmaster Tools -->' . PHP_EOL . wp_kses($webmaster, $webmaster_allowed_tags) . PHP_EOL;
-	echo '<!-- CWT Opengraph Tools -->' . PHP_EOL . wp_kses($opengraph, $opengraph_allowed_tags) . PHP_EOL;
-	echo '<!-- CWT SEO -->' . PHP_EOL . wp_kses($seo, $seo_allowed_tags) . PHP_EOL;
-	echo '<!-- CWT Custom CSS -->' . PHP_EOL . wp_kses($custom_css, $customCss_allowed_tags) . PHP_EOL;
-	echo '<!-- / Catch Web Tools plugin. -->' . PHP_EOL;
+	if ('' !== $webmaster || '' !== $opengraph || '' !== $seo || '' !== $custom_css) {
+		echo '<!-- This site is optimized with the Catch Web Tools v' . CATCHWEBTOOLS_VERSION . ' - https://catchplugins.com/plugins/catch-web-tools/ -->' . PHP_EOL;
+	}
+	echo PHP_EOL . $webmaster . PHP_EOL;
+
+	echo PHP_EOL . $opengraph . PHP_EOL;
+
+	echo PHP_EOL . $seo . PHP_EOL;
+
+	if ('' !== $custom_css) {
+		echo '<!-- CWT Custom CSS -->' . PHP_EOL . $custom_css . PHP_EOL;
+	}
+	if ('' !== $webmaster || '' !== $opengraph || '' !== $seo || '' !== $custom_css) {
+		echo '<!-- / Catch Web Tools plugin. -->' . PHP_EOL;
+	}
 }
 add_action('wp_head', 'catchwebtools_get_header_information', 99);
 
@@ -131,31 +143,16 @@ function catchwebtools_get_footer_information()
 {
 	$webmaster	=	catchwebtools_webmaster_footer_display();
 
-	$webmaster_allowed_tags = array(
-		'meta'   => array(
-			'name'    => true,
-			'content' => true,
-			'property' => true,
-			'charset' => true,
-		),
-		'script' => array(
-			'src'   => true,
-			'type'  => true,
-		),
-		'link' => array(
-			'href'   => true,
-			'type'  => true,
-			'rel'  => true,
-			'title'  => true,
-		),
-		'style'  => array(
-			'type' => true,
-		),
-	);
+	if ('' == $webmaster) {
+		//Bail early if all modles are empty
+		return;
+	}
 
 
-	echo '<!-- This site is optimized with the Catch Web Tools v' . esc_html(CATCHWEBTOOLS_VERSION) . ' - https://catchplugins.com/plugins/catch-web-tools/ -->' . PHP_EOL;
-	echo wp_kses($webmaster, $webmaster_allowed_tags) . PHP_EOL;
-	echo '<!-- / Catch Web Tools plugin. -->' . PHP_EOL;
+	echo '<!-- This site is optimized with the Catch Web Tools v' . CATCHWEBTOOLS_VERSION . ' - https://catchplugins.com/plugins/catch-web-tools/ -->' . PHP_EOL;
+	echo $webmaster . PHP_EOL;
+	if ('' !== $webmaster) {
+		echo '<!-- / Catch Web Tools plugin. -->' . PHP_EOL;
+	}
 }
 add_action('wp_footer', 'catchwebtools_get_footer_information', 99);

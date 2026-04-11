@@ -21,6 +21,8 @@ function catchwebtools_opengraph_display()
 
 		unset($og_settings['status']);
 
+		$output .= "<!-- CWT Opengraph Tools -->";
+
 		if (is_home() || is_front_page()) {
 			foreach ($og_settings as $property => $content) {
 				if ('og:default_image' == $property) {

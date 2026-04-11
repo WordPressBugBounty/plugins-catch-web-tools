@@ -18,6 +18,7 @@ function catchwebtools_webmaster_header_display()
 
 	$output		=	'';
 	if (isset($webmaster_settings['status']) && $webmaster_settings['status']) {
+		$output .= "<!-- CWT Webmaster Tools -->";
 
 		if (isset($webmaster_settings['header']) && '' != $webmaster_settings['header'])
 			$output .= $webmaster_settings['header'] . PHP_EOL;
