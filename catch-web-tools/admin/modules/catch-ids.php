@@ -7,6 +7,7 @@ if (! defined('ABSPATH')) exit;
  * @package Admin
  * @sub-package Admin Webmaster Display
  */
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template partial included within class method scope; variables are local, not global.
 ?>
 <?php include('header.php'); ?>
 <div id="catch-ids" class="catchids-main cwt">
@@ -65,7 +66,7 @@ if (! defined('ABSPATH')) exit;
                         <!-- Custom Post Types -->
                         <div id="module-<?php echo esc_attr($key); ?>" class="catch-modules">
                             <div class="module-header <?php echo $options[$key] ? 'active' : 'inactive'; ?>">
-                                <h3 class="module-title"><?php esc_html($value); ?></h3>
+                                <h3 class="module-title"><?php echo esc_html($value); ?></h3>
                                 <div class="switch">
                                     <input type="checkbox" id="catchwebtools_catchids[<?php echo esc_attr($key); ?>]" class="catchids-input-switch" rel="<?php echo esc_attr($key); ?>" <?php checked(true, $options[$key]); ?>>
                                     <label for="catchwebtools_catchids[<?php echo esc_attr($key); ?>]"></label>

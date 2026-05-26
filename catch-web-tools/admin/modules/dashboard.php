@@ -7,6 +7,7 @@ if (! defined('ABSPATH')) exit;
  * @package Admin
  * @sub-package Admin CatchIDs Display
  */
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template partial included within class method scope; variables are local, not global.
 ?>
 <?php include('header.php'); ?>
 
@@ -278,15 +279,12 @@ if (! defined('ABSPATH')) exit;
 										<p class="notice notice-warning">
 											<?php
 											printf(
-												sprintf(
-													wp_kses_post(
-														// Translators: %1$s opening tag %2$s closing tag with a link.
-														__('This module has been disabled by default since WordPress version 5.5 and above. For further detail, please visit this %1$slink%2$s', 'catch-web-tools')
-													),
-													'<a target="_blank" href="' . esc_url('https://catchplugins.com/news/catch-updater-notice-wordpress-5-5/')
-														. '">',
-													'</a>'
-												)
+												wp_kses_post(
+													/* translators: %1$s: opening anchor tag, %2$s: closing anchor tag */
+													__('This module has been disabled by default since WordPress version 5.5 and above. For further detail, please visit this %1$slink%2$s', 'catch-web-tools')
+												),
+												'<a target="_blank" href="' . esc_url('https://catchplugins.com/news/catch-updater-notice-wordpress-5-5/') . '">',
+												'</a>'
 											);
 											?>
 										</p>

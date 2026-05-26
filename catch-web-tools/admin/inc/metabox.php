@@ -8,8 +8,10 @@ if (! defined('ABSPATH')) exit;
  * SEO Metabox
  */
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- File-scope variables used immediately below; this file is included conditionally inside admin-functions.php.
 $seo_settings       = catchwebtools_get_options('catchwebtools_seo'); //Get seo settings
 $opengraph_settings = catchwebtools_get_options('catchwebtools_opengraph');//get opengraph settings
+// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 
 /**
  * Check if opengtaph in enabled and activate metabox
@@ -27,17 +29,17 @@ if ($seo_settings['status'] || $opengraph_settings['status']) {
  */
 function catchwebtools_enqueue($hook)
 {
-	if ('post.php' == $hook || 'post-new.php' == $hook) {
+	if ('post.php' === $hook || 'post-new.php' === $hook) {
 		$seo_settings       = catchwebtools_get_options('catchwebtools_seo'); //Get seo settings
 		$opengraph_settings = catchwebtools_get_options('catchwebtools_opengraph'); //get opengraph settings
 
 		if ($seo_settings['status'] || $opengraph_settings['status']) {
 			//Scripts
-			wp_register_script('jquery-cookie', CATCHWEBTOOLS_URL . 'admin/js/jquery.cookie.min.js');
-			wp_enqueue_script('catchwebtools-plugin-options', CATCHWEBTOOLS_URL . 'admin/js/metabox.js', array('jquery-ui-tabs', 'jquery-cookie'), '2013-10-05');
+			wp_register_script('jquery-cookie', CATCHWEBTOOLS_URL . 'admin/js/jquery.cookie.min.js', array(), CATCHWEBTOOLS_VERSION, true);
+			wp_enqueue_script('catchwebtools-plugin-options', CATCHWEBTOOLS_URL . 'admin/js/metabox.js', array('jquery-ui-tabs', 'jquery-cookie'), CATCHWEBTOOLS_VERSION, true);
 
 			//CSS Styles
-			wp_enqueue_style('catchwebtools-plugin-options', CATCHWEBTOOLS_URL . 'admin/css/metabox-tabs.css');
+			wp_enqueue_style('catchwebtools-plugin-options', CATCHWEBTOOLS_URL . 'admin/css/metabox-tabs.css', array(), CATCHWEBTOOLS_VERSION);
 		}
 	}
 }
@@ -161,7 +163,7 @@ function catchwebtools_custom_seo_fields($post, $meta_box)
 						echo '<option value="">-</option>';
 						foreach ($options as $option) {
 							echo '<option value="' . esc_attr($option) . '" ';
-							if ($og_type == $option)
+							if ($og_type === $option)
 								echo 'selected="true"';
 							echo '>' . esc_html($option) . '</option>';
 						}
@@ -248,32 +250,32 @@ function catchwebtools_custom_seo_fields_save_meta($post_id)
 		return $post_id;
 	}
 
-	$og_title = wp_kses_post($_POST['catchwebtools_opengraph_title']);
+	$og_title = wp_kses_post(wp_unslash($_POST['catchwebtools_opengraph_title'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated -- checked above via check_admin_referer and post_ID verification.
 	if (!add_post_meta($post_id, 'catchwebtools_opengraph_title', $og_title, true)) {
 		update_post_meta($post_id, 'catchwebtools_opengraph_title', $og_title);
 	}
 
-	$og_url = esc_url_raw($_POST['catchwebtools_opengraph_url']);
+	$og_url = esc_url_raw(wp_unslash($_POST['catchwebtools_opengraph_url'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 	if (!add_post_meta($post_id, 'catchwebtools_opengraph_url', $og_url, true)) {
 		update_post_meta($post_id, 'catchwebtools_opengraph_url', $og_url);
 	}
 
-	$og_image = esc_url_raw($_POST['catchwebtools_opengraph_image']);
+	$og_image = esc_url_raw(wp_unslash($_POST['catchwebtools_opengraph_image'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 	if (!add_post_meta($post_id, 'catchwebtools_opengraph_image', $og_image, true)) {
 		update_post_meta($post_id, 'catchwebtools_opengraph_image', $og_image);
 	}
 
-	$og_description = wp_kses_post($_POST['catchwebtools_opengraph_description']);
+	$og_description = wp_kses_post(wp_unslash($_POST['catchwebtools_opengraph_description'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 	if (!add_post_meta($post_id, 'catchwebtools_opengraph_description', $og_description, true)) {
 		update_post_meta($post_id, 'catchwebtools_opengraph_description', $og_description);
 	}
 
-	$og_type = wp_kses_post($_POST['catchwebtools_opengraph_type']);
+	$og_type = sanitize_text_field(wp_unslash($_POST['catchwebtools_opengraph_type'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 	if (!add_post_meta($post_id, 'catchwebtools_opengraph_type', $og_type, true)) {
 		update_post_meta($post_id, 'catchwebtools_opengraph_type', $og_type);
 	}
 
-	$og_custom = wp_kses($_POST['catchwebtools_opengraph_custom'], array(
+	$og_custom = wp_kses(wp_unslash($_POST['catchwebtools_opengraph_custom']), array( // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 		'meta' => array(
 			'property' => array(),
 			'content' => array(),
@@ -286,17 +288,17 @@ function catchwebtools_custom_seo_fields_save_meta($post_id)
 	}
 
 
-	$seo_title = wp_kses_post($_POST['catchwebtools_seo_title']);
+	$seo_title = sanitize_text_field(wp_unslash($_POST['catchwebtools_seo_title'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 	if (!add_post_meta($post_id, 'catchwebtools_seo_title', $seo_title, true)) {
 		update_post_meta($post_id, 'catchwebtools_seo_title', $seo_title);
 	}
 
-	$seo_description = wp_kses_post($_POST['catchwebtools_seo_description']);
+	$seo_description = sanitize_textarea_field(wp_unslash($_POST['catchwebtools_seo_description'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 	if (!add_post_meta($post_id, 'catchwebtools_seo_description', $seo_description, true)) {
 		update_post_meta($post_id, 'catchwebtools_seo_description', $seo_description);
 	}
 
-	$seo_keywords = wp_kses_post($_POST['catchwebtools_seo_keywords']);
+	$seo_keywords = sanitize_text_field(wp_unslash($_POST['catchwebtools_seo_keywords'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 	if (!add_post_meta($post_id, 'catchwebtools_seo_keywords', $seo_keywords, true)) {
 		update_post_meta($post_id, 'catchwebtools_seo_keywords', $seo_keywords);
 	}
@@ -423,17 +425,31 @@ function catchwebtools_category_seo_edit_form($term)
  */
 function catchwebtools_save_taxonomy_custom_meta($term_id)
 {
+	// phpcs:disable WordPress.Security.NonceVerification.Missing -- nonce verification is handled by WordPress core for taxonomy actions (edited_category, create_category).
 	if (isset($_POST['term_meta'])) {
 		$t_id      = $term_id;
 		$term_meta = get_option("taxonomy_$t_id");
-		$cat_keys  = array_keys($_POST['term_meta']);
+		if (!is_array($term_meta)) {
+			$term_meta = array();
+		}
+		$allowed_keys = array(
+			'catchwebtools_seo_category_title',
+			'catchwebtools_seo_category_description',
+			'catchwebtools_seo_category_keywords',
+		);
+		$raw_term_meta = wp_unslash($_POST['term_meta']); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Array elements are sanitized individually in the foreach loop below.
 
-		foreach ($cat_keys as $key) {
-			if (isset($_POST['term_meta'][$key])) {
-				$term_meta[$key] = $_POST['term_meta'][$key];
+		foreach ($allowed_keys as $key) {
+			if (isset($raw_term_meta[$key])) {
+				if ('catchwebtools_seo_category_description' === $key) {
+					$term_meta[$key] = sanitize_textarea_field($raw_term_meta[$key]);
+				} else {
+					$term_meta[$key] = sanitize_text_field($raw_term_meta[$key]);
+				}
 			}
 		}
 		// Save the option array.
 		update_option("taxonomy_$t_id", $term_meta);
 	}
+	// phpcs:enable WordPress.Security.NonceVerification.Missing
 }

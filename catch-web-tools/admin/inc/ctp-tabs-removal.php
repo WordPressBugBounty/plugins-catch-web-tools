@@ -4,7 +4,7 @@
 if (! defined('ABSPATH')) exit;
 
 if (! function_exists('ctp_register_settings')) {
-	function ctp_register_settings()
+	function ctp_register_settings() // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- ctp_ prefix kept for cross-plugin compatibility; wrapped in function_exists() guard.
 	{
 		// register_setting( $option_group, $option_name, $sanitize_callback )
 		register_setting(
@@ -22,7 +22,7 @@ if (! function_exists('ctp_get_options')) {
 	 *
 	 *  @since    1.9
 	 */
-	function ctp_get_options()
+	function ctp_get_options() // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- ctp_ prefix kept for cross-plugin compatibility; wrapped in function_exists() guard.
 	{
 		$defaults = ctp_default_options();
 		$options  = get_option('ctp_options', $defaults);
@@ -38,11 +38,11 @@ if (! function_exists('ctp_default_options')) {
 	 * @since     1.9
 	 * @return    string    1 or 2.
 	 */
-	function ctp_default_options($option = null)
+	function ctp_default_options($option = null) // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- ctp_ prefix kept for cross-plugin compatibility; wrapped in function_exists() guard.
 	{
 		$default_options['theme_plugin_tabs'] = 1;
 		if (null == $option) {
-			return apply_filters('ctp_options', $default_options);
+			return apply_filters('ctp_options', $default_options); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Hook name kept for cross-plugin compatibility with other Catch plugins.
 		} else {
 			return $default_options[$option];
 		}
@@ -56,7 +56,7 @@ if (! function_exists('ctp_switch')) {
 	 * @since     1.2
 	 * @return    $string    1 or 2.
 	 */
-	function ctp_switch()
+	function ctp_switch() // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- ctp_ prefix kept for cross-plugin compatibility; wrapped in function_exists() guard.
 	{
 		// Check nonce before doing and changes.
 		if (! check_ajax_referer('ctp_tabs_nonce', 'security', false)) {
@@ -65,9 +65,9 @@ if (! function_exists('ctp_switch')) {
 			if (! current_user_can('manage_options')) {
 				wp_die(esc_html__('Permission denied!', 'catch-web-tools'));
 			}
-			$value = ('true' == $_POST['value']) ? 1 : 0;
+			$value = ('true' === sanitize_text_field(wp_unslash($_POST['value']))) ? 1 : 0; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 
-			$option_name = $_POST['option_name'];
+			$option_name = sanitize_key(wp_unslash($_POST['option_name'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 
 			$option_value = ctp_get_options();
 

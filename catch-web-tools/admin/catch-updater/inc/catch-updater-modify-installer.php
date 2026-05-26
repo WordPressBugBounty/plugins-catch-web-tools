@@ -14,21 +14,22 @@ if (! defined('ABSPATH')) exit;
 if (! class_exists('CatchUpdaterModifyInstaller')) {
 	class CatchUpdaterModifyInstaller
 	{
-		var $_errors 		= array();
+		public $_errors 		= array();
 
-		var $_backup_status = 0;
+		public $_backup_status = 0;
 
 		/**
 		 * CatchUpdaterModifyInstaller _constructor to enqueue scripts, and modify output of the theme-install page
 		 * @uses add_action
 		 * @hooks  admin_init, load-theme-install.php, admin_enqueue_scripts
 		 */
-		function __construct()
+		public function __construct()
 		{
-
-			if (preg_match('/update\.php/', $_SERVER['REQUEST_URI']) && isset($_REQUEST['action'])) {
+			// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotValidated,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized,WordPress.Security.NonceVerification.Recommended -- REQUEST_URI is used only for routing; no user data is extracted.
+			if (isset($_SERVER['REQUEST_URI']) && preg_match('/update\.php/', wp_unslash($_SERVER['REQUEST_URI'])) && isset($_REQUEST['action'])) {
 				add_action('admin_init', array($this, 'handle_updates'), 100);
 			}
+			// phpcs:enable WordPress.Security.ValidatedSanitizedInput.InputNotValidated,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized,WordPress.Security.NonceVerification.Recommended
 
 			add_action('load-theme-install.php', array($this, 'start_output_buffering'));
 		}
@@ -39,37 +40,37 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 		 * @return modified output
 		 * @uses preg_replace
 		 */
-		function filter_output($output)
+		public function filter_output($output)
 		{
 			$text = '<div id="catch-updater-main">';
 
-			$text .= '<h3>' . __('CWT: Catch Updater Theme', 'catch-web-tools') . '</h3>';
+			$text .= '<h3>' . esc_html__('CWT: Catch Updater Theme', 'catch-web-tools') . '</h3>';
 
 			$output = preg_replace('/(<input [^>]*name="(?:theme)zip".+?\n)/', "$text\$1", $output);
 
-			$text = '<p><i>' . __('By default, the Catch Updater will overwrite an existing theme and create a backup in media library.', 'catch-web-tools') . '</i></p>';
+			$text = '<p><i>' . esc_html__('By default, the Catch Updater will overwrite an existing theme and create a backup in media library.', 'catch-web-tools') . '</i></p>';
 
-			$text .= '<a class="button button-primary" id="more_options_show_button" />' . __('More Options', 'catch-web-tools') . '</a>';
+			$text .= '<a class="button button-primary" id="more_options_show_button" />' . esc_html__('More Options', 'catch-web-tools') . '</a>';
 
-			$text .= '<a class="button button-primary" id="more_options_hide_button"  style="display: none;" />' . __('Less Options', 'catch-web-tools') . '</a>';
+			$text .= '<a class="button button-primary" id="more_options_hide_button"  style="display: none;" />' . esc_html__('Less Options', 'catch-web-tools') . '</a>';
 
 			$text .= '<div id="more_options">';
-			$text .= '<p><label>' . __('Update existing Theme? ', 'catch-web-tools') . '</label>
+			$text .= '<p><label>' . esc_html__('Update existing Theme? ', 'catch-web-tools') . '</label>
 								<select name="catch_updater_update_existing">
-									<option value="yes">' . __('Yes', 'catch-web-tools') . '</option>
-									<option value="no">' . __('No', 'catch-web-tools') . '</option>
+									<option value="yes">' . esc_html__('Yes', 'catch-web-tools') . '</option>
+									<option value="no">' . esc_html__('No', 'catch-web-tools') . '</option>
 								</select>
 							</p>';
 
-			$text .= '<p><label>' . __('Create Backup? ', 'catch-web-tools') . '</label>
+			$text .= '<p><label>' . esc_html__('Create Backup? ', 'catch-web-tools') . '</label>
 								<select name="catch_updater_create_backup">
-									<option value="yes">' . __('Yes', 'catch-web-tools') . '</option>
-									<option value="no">' . __('No', 'catch-web-tools') . '</option>
+									<option value="yes">' . esc_html__('Yes', 'catch-web-tools') . '</option>
+									<option value="no">' . esc_html__('No', 'catch-web-tools') . '</option>
 								</select>
 							</p>';
 
-			$text .= '<p>' . __('Message to display in front-end until update has finished', 'catch-web-tools') . '
-								<textarea name="catch_updater_update_message" cols="15">' . __('The site is being updated and will be back in a few minutes.', 'catch-web-tools') . '</textarea>
+			$text .= '<p>' . esc_html__('Message to display in front-end until update has finished', 'catch-web-tools') . '
+								<textarea name="catch_updater_update_message" cols="15">' . esc_html__('The site is being updated and will be back in a few minutes.', 'catch-web-tools') . '</textarea>
 							</p>';
 			$text .= '</div>';
 			$text .= '</div>';
@@ -83,7 +84,7 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 		 * start_output_buffering Just start outpur buffering
 		 * @uses  $this->filter_output()
 		 */
-		function start_output_buffering()
+		public function start_output_buffering()
 		{
 			ob_start(array($this, 'filter_output'));
 		}
@@ -92,7 +93,7 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 		 * _get_themes return current themes
 		 * @return current themes
 		 */
-		function _get_themes()
+		public function _get_themes()
 		{
 			global $wp_themes;
 
@@ -121,7 +122,7 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 		 * @param  $directory theme of which, data in required
 		 * @return theme data
 		 */
-		function _get_theme_data($directory)
+		public function _get_theme_data($directory)
 		{
 			$data 			= array();
 
@@ -161,20 +162,27 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 		/**
 		 * handle_updates main function that handles upgrades
 		 */
-		function handle_updates()
+		public function handle_updates()
 		{
 			if (empty($_POST['catch_updater_update_existing'])) {
 				return;
 			}
 
-			if ('no' === $_POST['catch_updater_update_existing']) {
+			if ('no' === sanitize_text_field(wp_unslash($_POST['catch_updater_update_existing']))) {
 				if (version_compare($GLOBALS['wp_version'], '3.8.9', '>')) {
-					$link = admin_url("theme-install.php?upload");
+					$link = admin_url('theme-install.php?upload');
 				} else {
-					$link = admin_url("theme-install.php?tab=upload");
+					$link = admin_url('theme-install.php?tab=upload');
 				}
 
-				$this->_errors[] = __('You must select "Yes" from the "update existing theme?" dropdown option in order to update an existing theme.', 'catch-web-tools') . ' <a href="' . esc_url($link) . '">' . __('Try again', 'catch-web-tools') . '</a>.';
+				$this->_errors[] = wp_kses_post(
+					sprintf(
+						/* translators: %1$s: opening anchor tag, %2$s: closing anchor tag */
+						__('You must select "Yes" from the "update existing theme?" dropdown option in order to update an existing theme. %1$sTry again%2$s.', 'catch-web-tools'),
+						'<a href="' . esc_url($link) . '">',
+						'</a>'
+					)
+				);
 				add_action('admin_notices', array($this, 'show_update_option_error_message'));
 
 				return;
@@ -182,17 +190,17 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 
 			remove_action('admin_print_styles', 'builder_add_global_admin_styles');
 
-			include_once(ABSPATH . 'wp-admin/includes/class-wp-upgrader.php');
+			require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 
-			require_once(ABSPATH . 'wp-admin/includes/class-pclzip.php');
+			require_once ABSPATH . 'wp-admin/includes/class-pclzip.php';
 
-			require_once(ABSPATH . 'wp-admin/includes/file.php');
+			require_once ABSPATH . 'wp-admin/includes/file.php';
 
-			check_admin_referer("theme-upload");
+			check_admin_referer('theme-upload');
 
-			@set_time_limit(300);
+			@set_time_limit(300); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged,Squiz.PHP.DiscouragedFunctions.Discouraged -- set_time_limit() is safe to silence and necessary for long-running zip operations.
 
-			$archive 	= new PclZip($_FILES["themezip"]['tmp_name']);
+			$archive 	= new PclZip($_FILES['themezip']['tmp_name']); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- tmp_name is a server-generated path, not user input.
 
 			$directory 	= '';
 
@@ -210,7 +218,7 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 			if (empty($data))
 				return;
 
-			if ('yes' === $_POST['catch_updater_create_backup']) {
+			if ('yes' === sanitize_text_field(wp_unslash($_POST['catch_updater_create_backup']))) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 				$time_string 	= time();
 
 				$zip_file 		= "$directory-{$data['version']}-$time_string.zip";
@@ -225,8 +233,8 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 
 				$zip_result 	= $archive->create($data['directory'], PCLZIP_OPT_REMOVE_PATH, dirname($data['directory']));
 
-				if (0 == $zip_result) {
-					$this->_errors[] = __('Unable to make a backup of the existing theme. Will not proceed with the update.', 'catch-web-tools');
+				if (0 === $zip_result) {
+					$this->_errors[] = esc_html__('Unable to make a backup of the existing theme. Will not proceed with the update.', 'catch-web-tools');
 					add_action('admin_notices', array($this, 'show_update_option_error_message'));
 
 					return;
@@ -251,20 +259,24 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 			if ($data['is_active']) {
 				set_transient('catch_updater_in_maintenance_mode', '1', 300);
 
-				set_transient('catch_updater_update_message', $_POST['catch_updater_update_message'], 300);
+				$update_message = isset($_POST['catch_updater_update_message'])
+					? sanitize_text_field(wp_unslash($_POST['catch_updater_update_message']))
+					: '';
+				set_transient('catch_updater_update_message', $update_message, 300);
 			}
 
+			// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- $wp_filesystem must be global to use WP_Filesystem().
 			global $wp_filesystem;
 
 			if (! WP_Filesystem()) {
-				$this->_errors[] = __('Unable to initialize WP_Filesystem. Will not proceed with the update.', 'catch-web-tools');
+				$this->_errors[] = esc_html__('Unable to initialize WP_Filesystem. Will not proceed with the update.', 'catch-web-tools');
 				add_action('admin_notices', array($this, 'show_update_option_error_message'));
 
 				return;
 			}
 
 			if (! $wp_filesystem->delete($data['directory'], true)) {
-				$this->_errors[] = __('Unable to remove the existing theme directory. Will not proceed with the update.', 'catch-web-tools');
+				$this->_errors[] = esc_html__('Unable to remove the existing theme directory. Will not proceed with the update.', 'catch-web-tools');
 				add_action('admin_notices', array($this, 'show_update_option_error_message'));
 
 				return;
@@ -281,14 +293,14 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 		/**
 		 * show_message display message
 		 */
-		function show_message()
+		public function show_message()
 		{
 			if (isset($this->_zip_url)) {
 				echo '<div id="message" class="updated fade">
 						<p>
 							<strong>' . wp_kses_post(
 					sprintf(
-						/* Translators: %1$s opening anchor tag, %2$s closing anchor tag */
+						/* translators: %1$s: opening anchor tag, %2$s: closing anchor tag */
 						__('A backup zip file of the old theme version can be downloaded %1$shere%2$s.', 'catch-web-tools'),
 						'<a href="' . esc_url($this->_zip_url) . '">',
 						'</a>'
@@ -308,7 +320,7 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 		/**
 		 * show_update_option_error_message show error message if error occurs
 		 */
-		function show_update_option_error_message()
+		public function show_update_option_error_message()
 		{
 			if (! isset($this->_errors))
 				return;
@@ -317,7 +329,7 @@ if (! class_exists('CatchUpdaterModifyInstaller')) {
 				$this->_errors = array($this->_errors);
 
 			foreach ((array) $this->_errors as $error)
-				echo "<div id=\"message\" class=\"error\"><p><strong>" . esc_html($error) . "</strong></p></div>\n";
+				echo '<div id="message" class="error"><p><strong>' . wp_kses_post($error) . '</strong></p></div>' . "\n";
 		}
 	}
 

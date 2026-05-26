@@ -18,7 +18,7 @@ class catchwebtools
 	 * catchwebtools default constructor
 	 * action hooks enabled to add Catch Web Tools to menu
 	 */
-	function __construct()
+	public function __construct()
 	{
 		add_action('admin_menu', array($this, 'add_plugin_settings_menu'));
 
@@ -35,150 +35,150 @@ class catchwebtools
 	 * catchwebtools: add_plugin_settings_menu
 	 * add Catch Web Tools to menu
 	 */
-	function add_plugin_settings_menu()
+	public function add_plugin_settings_menu()
 	{
 		//add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
-		add_menu_page(__('Dashboard', 'catch-web-tools'), __('Catch Web Tools', 'catch-web-tools'), 'manage_options', 'catch-web-tools', array($this, 'catch_web_tools_settings_page'), CATCHWEBTOOLS_URL . 'images/catch-themes-themes-option.png', '99.01564');
+		add_menu_page(esc_html__('Dashboard', 'catch-web-tools'), esc_html__('Catch Web Tools', 'catch-web-tools'), 'manage_options', 'catch-web-tools', array($this, 'catch_web_tools_settings_page'), CATCHWEBTOOLS_URL . 'images/catch-themes-themes-option.png', '99.01564');
 
 		//add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function);
-		add_submenu_page('catch-web-tools', __('Dashboard', 'catch-web-tools'), __('Dashboard', 'catch-web-tools'), 'manage_options', 'catch-web-tools', array($this, 'catch_web_tools_settings_page'));
+		add_submenu_page('catch-web-tools', esc_html__('Dashboard', 'catch-web-tools'), esc_html__('Dashboard', 'catch-web-tools'), 'manage_options', 'catch-web-tools', array($this, 'catch_web_tools_settings_page'));
 
-		add_submenu_page('catch-web-tools', __('Webmasters', 'catch-web-tools'), __('Webmasters', 'catch-web-tools'), 'manage_options', 'catch-web-tools-webmasters', array($this, 'catch_web_tools_webmaster_page'));
+		add_submenu_page('catch-web-tools', esc_html__('Webmasters', 'catch-web-tools'), esc_html__('Webmasters', 'catch-web-tools'), 'manage_options', 'catch-web-tools-webmasters', array($this, 'catch_web_tools_webmaster_page'));
 
-		add_submenu_page('catch-web-tools', __('Catch IDs', 'catch-web-tools'), __('Catch IDs', 'catch-web-tools'), 'manage_options', 'catch-web-tools-catch-ids', array($this, 'catch_web_tools_catch_ids_page'));
+		add_submenu_page('catch-web-tools', esc_html__('Catch IDs', 'catch-web-tools'), esc_html__('Catch IDs', 'catch-web-tools'), 'manage_options', 'catch-web-tools-catch-ids', array($this, 'catch_web_tools_catch_ids_page'));
 
 		/**
 		 * Do not show Custom CSS option from WordPress 4.7 onwards
 		 */
 		if (!function_exists('wp_update_custom_css_post')) {
-			add_submenu_page('catch-web-tools', __('Custom CSS', 'catch-web-tools'), __('Custom CSS', 'catch-web-tools'), 'manage_options', 'catch-web-tools-custom-css', array($this, 'catch_web_tools_custom_css_page'));
+			add_submenu_page('catch-web-tools', esc_html__('Custom CSS', 'catch-web-tools'), esc_html__('Custom CSS', 'catch-web-tools'), 'manage_options', 'catch-web-tools-custom-css', array($this, 'catch_web_tools_custom_css_page'));
 		}
 
-		add_submenu_page('catch-web-tools', __('Social Icons', 'catch-web-tools'), __('Social Icons', 'catch-web-tools'), 'manage_options', 'catch-web-tools-social-icons', array($this, 'catch_web_tools_social_icons_page'));
+		add_submenu_page('catch-web-tools', esc_html__('Social Icons', 'catch-web-tools'), esc_html__('Social Icons', 'catch-web-tools'), 'manage_options', 'catch-web-tools-social-icons', array($this, 'catch_web_tools_social_icons_page'));
 
-		add_submenu_page('catch-web-tools', __('Open Graph', 'catch-web-tools'), __('Open Graph', 'catch-web-tools'), 'manage_options', 'catch-web-tools-opengraph', array($this, 'catch_web_tools_opengraph_page'));
+		add_submenu_page('catch-web-tools', esc_html__('Open Graph', 'catch-web-tools'), esc_html__('Open Graph', 'catch-web-tools'), 'manage_options', 'catch-web-tools-opengraph', array($this, 'catch_web_tools_opengraph_page'));
 
-		add_submenu_page('catch-web-tools', __('SEO', 'catch-web-tools'), __('SEO', 'catch-web-tools'), 'manage_options', 'catch-web-tools-seo', array($this, 'catch_web_tools_seo_page'));
+		add_submenu_page('catch-web-tools', esc_html__('SEO', 'catch-web-tools'), esc_html__('SEO', 'catch-web-tools'), 'manage_options', 'catch-web-tools-seo', array($this, 'catch_web_tools_seo_page'));
 
-		add_submenu_page('catch-web-tools', __('To Top', 'catch-web-tools'), __('To Top', 'catch-web-tools'), 'manage_options', 'catch-web-tools-to-top', array($this, 'catch_web_tools_to_top_page'));
+		add_submenu_page('catch-web-tools', esc_html__('To Top', 'catch-web-tools'), esc_html__('To Top', 'catch-web-tools'), 'manage_options', 'catch-web-tools-to-top', array($this, 'catch_web_tools_to_top_page'));
 	}
 
 	/**
 	 * catchwebtools: catch_web_tools_settings_page
 	 * Catch Web Tools Setting function
 	 */
-	function catch_web_tools_settings_page()
+	public function catch_web_tools_settings_page()
 	{
 		if (!current_user_can('manage_options')) {
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'catch-web-tools'));
 		}
 
-		include(CATCHWEBTOOLS_PATH . '/admin/modules/dashboard.php');
+		include CATCHWEBTOOLS_PATH . '/admin/modules/dashboard.php';
 	}
 
 	/**
 	 * catchwebtools: catch_web_tools_webmaster_page
 	 * Catch Web Tools Webmaster Display Function
 	 */
-	function catch_web_tools_webmaster_page()
+	public function catch_web_tools_webmaster_page()
 	{
 
 		if (!current_user_can('manage_options')) {
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'catch-web-tools'));
 		}
 
-		include(CATCHWEBTOOLS_PATH . '/admin/modules/webmaster.php');
+		include CATCHWEBTOOLS_PATH . '/admin/modules/webmaster.php';
 	}
 
 	/**
 	 * catchwebtools: catch_web_tools_catch_ids_page
 	 * Catch Web Tools Catch_IDs Display Function
 	 */
-	function catch_web_tools_catch_ids_page()
+	public function catch_web_tools_catch_ids_page()
 	{
 
-		if (!current_user_can('edit_posts')) {
+		if (!current_user_can('manage_options')) {
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'catch-web-tools'));
 		}
 
-		include(CATCHWEBTOOLS_PATH . '/admin/modules/catch-ids.php');
+		include CATCHWEBTOOLS_PATH . '/admin/modules/catch-ids.php';
 	}
 
 	/**
 	 * catchwebtools: catch_web_tools_opengraph_page
 	 * Catch Web Tools Webmaster Display Function
 	 */
-	function catch_web_tools_opengraph_page()
+	public function catch_web_tools_opengraph_page()
 	{
 
 		if (!current_user_can('manage_options')) {
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'catch-web-tools'));
 		}
 
-		include(CATCHWEBTOOLS_PATH . '/admin/modules/opengraph.php');
+		include CATCHWEBTOOLS_PATH . '/admin/modules/opengraph.php';
 	}
 
 	/**
 	 * catchwebtools: catch_web_tools_seo_page
 	 * Catch Web Tools SEO Display Function
 	 */
-	function catch_web_tools_seo_page()
+	public function catch_web_tools_seo_page()
 	{
 
 		if (!current_user_can('manage_options')) {
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'catch-web-tools'));
 		}
 
-		include(CATCHWEBTOOLS_PATH . '/admin/modules/seo.php');
+		include CATCHWEBTOOLS_PATH . '/admin/modules/seo.php';
 	}
 
 	/**
 	 * catchwebtools: catch_web_tools_seo_page
 	 * Catch Web Tools To Top Display Function
 	 */
-	function catch_web_tools_to_top_page()
+	public function catch_web_tools_to_top_page()
 	{
 
 		if (!current_user_can('manage_options')) {
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'catch-web-tools'));
 		}
 		//include( CATCHWEBTOOLS_PATH . '/to-top/to-top.php' );
-		include(CATCHWEBTOOLS_PATH . '/admin/modules/to-top.php');
+		include CATCHWEBTOOLS_PATH . '/admin/modules/to-top.php';
 	}
 
 	/**
 	 * catchwebtools: catch_web_tools_social_icons_page
 	 * Catch Web Tools Social Icons Display Function
 	 */
-	function catch_web_tools_social_icons_page()
+	public function catch_web_tools_social_icons_page()
 	{
 
 		if (!current_user_can('manage_options')) {
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'catch-web-tools'));
 		}
 
-		include(CATCHWEBTOOLS_PATH . '/admin/modules/social-icons.php');
+		include CATCHWEBTOOLS_PATH . '/admin/modules/social-icons.php';
 	}
 
 	/**
 	 * catchwebtools: catch_web_tools_custom_css_page
 	 * Catch Web Tools Custom CSS Display Function
 	 */
-	function catch_web_tools_custom_css_page()
+	public function catch_web_tools_custom_css_page()
 	{
 
 		if (!current_user_can('manage_options')) {
 			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'catch-web-tools'));
 		}
 
-		include(CATCHWEBTOOLS_PATH . '/admin/modules/custom-css.php');
+		include CATCHWEBTOOLS_PATH . '/admin/modules/custom-css.php';
 	}
 
 	/**
 	 * catchwebtools: register_settings
 	 * Catch Web Tools Register Settings
 	 */
-	function register_settings()
+	public function register_settings()
 	{
 		// register_setting( $option_group, $option_name, $sanitize_callback )
 		register_setting(
@@ -244,10 +244,10 @@ class catchwebtools
 		);
 	}
 
-	function add_plugin_meta_links($meta_fields, $file)
+	public function add_plugin_meta_links($meta_fields, $file)
 	{
 
-		if (CATCHWEBTOOLS_BASENAME == $file) {
+		if (CATCHWEBTOOLS_BASENAME === $file) {
 
 			$meta_fields[] = "<a href='https://catchplugins.com/support-forum/forum/catch-web-tools/' target='_blank'>Support Forum</a>";
 			$meta_fields[] = "<a href='https://wordpress.org/support/plugin/catch-web-tools/reviews#new-post' target='_blank' title='Rate'>
@@ -261,6 +261,7 @@ class catchwebtools
 
 			$stars_color = "#ffb900";
 
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- inline CSS with a hardcoded constant color value; no user input involved.
 			echo "<style>"
 				. ".ct-rate-stars{display:inline-block;color:" . esc_html($stars_color) . ";position:relative;top:3px;}"
 				. ".ct-rate-stars svg{fill:" . esc_html($stars_color) . ";}"
@@ -277,9 +278,9 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_webmaster_sanitize_callback
 	 * Webmaster Sanitization function callback
 	 */
-	function catchwebtools_webmaster_sanitize_callback($input)
+	public function catchwebtools_webmaster_sanitize_callback($input)
 	{
-		$input['status'] = (isset($input['status']) && '1' == $input['status']) ? '1' : '0';
+		$input['status'] = (isset($input['status']) && '1' === $input['status']) ? '1' : '0';
 
 		if (!empty($input['header'])) {
 			$input['header'] = wp_kses_stripslashes(force_balance_tags($input['header']));
@@ -316,9 +317,9 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_opengraph_sanitize_callback
 	 * Open Graph Sanitization function callback
 	 */
-	function catchwebtools_opengraph_sanitize_callback($input)
+	public function catchwebtools_opengraph_sanitize_callback($input)
 	{
-		$input['status'] = (isset($input['status']) && '1' == $input['status']) ? '1' : '0';
+		$input['status'] = (isset($input['status']) && '1' === $input['status']) ? '1' : '0';
 
 		if (!empty($input['og:image'])) {
 			$input['og:image']			=	esc_url_raw($input['og:image']);
@@ -341,7 +342,7 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_custom_css_sanitize_callback
 	 * Custom Css Sanitization function callback
 	 */
-	function catchwebtools_custom_css_sanitize_callback($input)
+	public function catchwebtools_custom_css_sanitize_callback($input)
 	{
 		if (!empty($input)) {
 			$input	=	 wp_strip_all_tags($input);
@@ -356,13 +357,13 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_seo_sanitize_callback
 	 * Seo Sanitization function callback
 	 */
-	function catchwebtools_seo_sanitize_callback($input)
+	public function catchwebtools_seo_sanitize_callback($input)
 	{
-		$input['status'] = (isset($input['status']) && '1' == $input['status']) ? '1' : '0';
+		$input['status'] = (isset($input['status']) && '1' === $input['status']) ? '1' : '0';
 
-		$input['title'] = ($input['title'] != '') ? sanitize_text_field($input['title']) : get_bloginfo('name');
+		$input['title'] = (isset($input['title']) && '' !== $input['title']) ? sanitize_text_field($input['title']) : get_bloginfo('name');
 
-		$input['description'] =	($input['description'] != '') ? sanitize_text_field($input['description']) : get_bloginfo('description');
+		$input['description'] = (isset($input['description']) && '' !== $input['description']) ? sanitize_text_field($input['description']) : get_bloginfo('description');
 
 		return $input;
 	}
@@ -371,9 +372,9 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_social_icons_sanitize_callback
 	 * Social Icons Sanitization function callback
 	 */
-	function catchwebtools_social_icons_sanitize_callback($input)
+	public function catchwebtools_social_icons_sanitize_callback($input)
 	{
-		$input['status'] = (isset($input['status']) && '1' == $input['status']) ? '1' : '0';
+		$input['status'] = (isset($input['status']) && '1' === $input['status']) ? '1' : '0';
 
 		if (!empty($input['social_icon_size'])) {
 			$input['social_icon_size']	=	intval($input['social_icon_size']);
@@ -420,9 +421,9 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_catchids_sanitize_callback
 	 * Catch Ids Sanitization function callback
 	 */
-	function catchwebtools_catchids_sanitize_callback($input)
+	public function catchwebtools_catchids_sanitize_callback($input)
 	{
-		$input['status'] = (isset($input['status']) && '1' == $input['status']) ? '1' : '0';
+		$input['status'] = (isset($input['status']) && '1' === $input['status']) ? '1' : '0';
 
 		return $input;
 	}
@@ -431,9 +432,9 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_catch_updater_sanitize_callback
 	 * Catch Ids Sanitization function callback
 	 */
-	function catchwebtools_catch_updater_sanitize_callback($input)
+	public function catchwebtools_catch_updater_sanitize_callback($input)
 	{
-		$input['status'] = (isset($input['status']) && '1' == $input['status']) ? '1' : '0';
+		$input['status'] = (isset($input['status']) && '1' === $input['status']) ? '1' : '0';
 
 		return $input;
 	}
@@ -442,14 +443,10 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_catch_updater_sanitize_callback
 	 * Catch Ids Sanitization function callback
 	 */
-	function catchwebtools_big_image_size_threshold_sanitize_callback($input)
+	public function catchwebtools_big_image_size_threshold_sanitize_callback($input)
 	{
-		echo '<pre>';
-		print_r($input);
-		echo '</pre>';
-		die();
-		$input['status'] = (isset($input['status']) && '1' == $input['status']) ? '1' : '0';
-		$input['max'] = (isset($input['max']) && '2560' >= $input['max']) ? $input['max'] : '2560';
+		$input['status'] = (isset($input['status']) && '1' === $input['status']) ? '1' : '0';
+		$input['max'] = (isset($input['max']) && 2560 >= (int) $input['max']) ? $input['max'] : '2560';
 
 		return $input;
 	}
@@ -458,7 +455,7 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_to_top_sanitize_callback
 	 * Catch Ids Sanitization function callback
 	 */
-	function catchwebtools_to_top_sanitize_callback($input)
+	public function catchwebtools_to_top_sanitize_callback($input)
 	{
 		if (isset($input['reset']) && $input['reset']) {
 			//If reset, restore defaults
@@ -552,7 +549,7 @@ class catchwebtools
 	 * catchwebtools: catchwebtools_customizer_custom_css
 	 * Add Custom CSS Option to Customizer
 	 */
-	function catchwebtools_customizer_custom_css($wp_customize)
+	public function catchwebtools_customizer_custom_css($wp_customize)
 	{
 		$wp_customize->add_panel('catchwebtools_options', array(
 			'description'	=> esc_html(''),
@@ -586,7 +583,7 @@ class catchwebtools
 		}
 	}
 
-	function register_additional_javascript($wp_customize)
+	public function register_additional_javascript($wp_customize)
 	{
 		$webmaster_settings	=	catchwebtools_get_options('catchwebtools_webmaster');
 
@@ -659,4 +656,5 @@ class catchwebtools
 	}
 }
 
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- global singleton for the catchwebtools class.
 $catch_web_tools = new catchwebtools();

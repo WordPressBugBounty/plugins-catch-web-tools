@@ -28,7 +28,7 @@ if (! function_exists('catchwebtools_catchids_value')) :
 	function catchwebtools_catchids_value($column_name, $id)
 	{
 
-		if ('cwt_catchids' == $column_name) {
+		if ('cwt_catchids' === $column_name) {
 			echo esc_html($id);
 		}
 	}
@@ -38,7 +38,7 @@ endif; // catchwebtools_catchids_value
 if (! function_exists('catchwebtools_catchids_return_value')) :
 	function catchwebtools_catchids_return_value($value, $column_name, $id)
 	{
-		if ('cwt_catchids' == $column_name) {
+		if ('cwt_catchids' === $column_name) {
 			$value .= $id;
 		}
 		return $value;
@@ -86,7 +86,7 @@ if (! function_exists('catchwebtools_catchids_add')) :
 
 		if ($settings['status'] && ! is_plugin_active('catch-ids/catch-ids.php')) {
 			// For Media Management
-			if (is_array($settings) && array_key_exists('media', $settings) && (1 == $settings['media'])) {
+			if (is_array($settings) && array_key_exists('media', $settings) && (1 === (int) $settings['media'])) {
 				add_action('manage_media_columns', 'catchwebtools_catchids_column');
 				add_filter('manage_media_custom_column', 'catchwebtools_catchids_value', 10, 3);
 			}
@@ -101,7 +101,7 @@ if (! function_exists('catchwebtools_catchids_add')) :
 
 			// For Category, Tags and other custom taxonomies Management
 			foreach (get_taxonomies() as $taxonomy) {
-				if (is_array($settings) && array_key_exists('category', $settings) && (1 == $settings['category'])) {
+				if (is_array($settings) && array_key_exists('category', $settings) && (1 === (int) $settings['category'])) {
 					add_action("manage_edit-{$taxonomy}_columns",  'catchwebtools_catchids_column');
 					add_filter("manage_{$taxonomy}_custom_column", 'catchwebtools_catchids_return_value', 10, 3);
 					if (version_compare($GLOBALS['wp_version'], '3.0.999', '>')) {
@@ -111,7 +111,7 @@ if (! function_exists('catchwebtools_catchids_add')) :
 			}
 
 			foreach (get_post_types() as $ptype) {
-				if (is_array($settings) && array_key_exists($ptype, $settings) && (1 == $settings[$ptype])) {
+				if (is_array($settings) && array_key_exists($ptype, $settings) && (1 === (int) $settings[$ptype])) {
 					add_action("manage_edit-{$ptype}_columns",        'catchwebtools_catchids_column');
 					add_filter("manage_{$ptype}_posts_custom_column", 'catchwebtools_catchids_value', 10, 3);
 					if (version_compare($GLOBALS['wp_version'], '3.0.999', '>')) {
@@ -121,7 +121,7 @@ if (! function_exists('catchwebtools_catchids_add')) :
 			}
 
 			// For User Management
-			if (is_array($settings) && array_key_exists('user', $settings) && (1 == $settings['user'])) {
+			if (is_array($settings) && array_key_exists('user', $settings) && (1 === (int) $settings['user'])) {
 				add_action('manage_users_columns', 'catchwebtools_catchids_column');
 				add_filter('manage_users_custom_column', 'catchwebtools_catchids_return_value', 10, 3);
 				if (version_compare($GLOBALS['wp_version'], '3.0.999', '>')) {
@@ -130,7 +130,7 @@ if (! function_exists('catchwebtools_catchids_add')) :
 			}
 
 			// For Comment Management
-			if (is_array($settings) && array_key_exists('comment', $settings) && (1 == $settings['comment'])) {
+			if (is_array($settings) && array_key_exists('comment', $settings) && (1 === (int) $settings['comment'])) {
 				add_action('manage_edit-comments_columns', 'catchwebtools_catchids_column');
 				add_action('manage_comments_custom_column', 'catchwebtools_catchids_value', 10, 2);
 				if (version_compare($GLOBALS['wp_version'], '3.0.999', '>')) {
@@ -173,9 +173,9 @@ if (! function_exists('catchwebtools_catchids_switch')) :
 		if (! current_user_can('manage_options')) {
 			wp_die(esc_html__('Permission denied!', 'catch-web-tools'));
 		}
-		$value = ('true' == $_POST['value']) ? 1 : 0;
+		$value = ('true' === sanitize_text_field(wp_unslash($_POST['value']))) ? 1 : 0; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 
-		$option_name = $_POST['option_name'];
+		$option_name = sanitize_key(wp_unslash($_POST['option_name'])); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 
 		$option_value = catchwebtools_get_options('catchwebtools_catchids');
 

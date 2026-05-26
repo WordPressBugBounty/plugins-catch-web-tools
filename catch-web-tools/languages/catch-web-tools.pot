@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Catch Web Tools\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2026-04-11 23:02+0545\n"
+"POT-Creation-Date: 2026-05-26 13:44+0545\n"
 "PO-Revision-Date: 2016-12-12 09:23-0500\n"
 "Last-Translator: Sakin Shrestha <info@catchplugins.com>\n"
 "Language-Team: Catch Plugins <info@catchplugins.com>\n"
@@ -19,141 +19,42 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:46
-msgid "CWT: Catch Updater Theme"
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:50
-msgid ""
-"By default, the Catch Updater will overwrite an existing theme and create a "
-"backup in media library."
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:52
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:52
-msgid "More Options"
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:54
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:54
-msgid "Less Options"
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:57
-msgid "Update existing Theme? "
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:59
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:66
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:59
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:66
-msgid "Yes"
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:60
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:67
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:60
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:67
-msgid "No"
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:64
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:64
-msgid "Create Backup? "
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:71
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:71
-msgid "Message to display in front-end until update has finished"
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:72
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:72
-msgid "The site is being updated and will be back in a few minutes."
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:177
+#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:181
+#, php-format
 msgid ""
 "You must select \"Yes\" from the \"update existing theme?\" dropdown option "
-"in order to update an existing theme."
+"in order to update an existing theme. %1$sTry again%2$s."
 msgstr ""
 
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:177
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:139
-msgid "Try again"
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:229
-msgid ""
-"Unable to make a backup of the existing theme. Will not proceed with the "
-"update."
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:260
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:216
-msgid "Unable to initialize WP_Filesystem. Will not proceed with the update."
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:267
-msgid ""
-"Unable to remove the existing theme directory. Will not proceed with the "
-"update."
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:292
+#: ../admin/catch-updater/inc/catch-updater-modify-installer.php:304
 #, php-format
 msgid ""
 "A backup zip file of the old theme version can be downloaded %1$shere%2$s."
 msgstr ""
 
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:46
-msgid "CWT: Catch Updater Plugin"
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:50
-msgid ""
-"By default, the Catch Updater will overwrite an existing plugin and create a "
-"backup in media library."
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:57
-msgid "Update existing Plugin? "
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:139
-msgid ""
-"You must select \"Yes\" from the \"update existing plugin?\" dropdown option "
-"in order to update an existing plugin."
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:191
-msgid ""
-"Unable to make a backup of the existing plugin. Will not proceed with the "
-"update."
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:223
-msgid ""
-"Unable to remove the existing plugin directory. Will not proceed with the "
-"update."
-msgstr ""
-
-#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:243
+#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:143
 #, php-format
 msgid ""
-"A backup zip file of the old plugin version can be downloaded %1$shere%2$s ."
+"You must select \"Yes\" from the \"update existing plugin?\" dropdown option "
+"in order to update an existing plugin. %1$sTry again%2$s."
 msgstr ""
 
-#: ../admin/inc/CatchThemesThemePlugin.php:161
+#: ../admin/catch-updater/inc/catch-updater-plugin-modify-installer.php:252
+#, php-format
+msgid ""
+"A backup zip file of the old plugin version can be downloaded %1$shere%2$s."
+msgstr ""
+
+#: ../admin/inc/CatchThemesThemePlugin.php:162
 msgid "Themes by CatchThemes"
 msgstr ""
 
-#: ../admin/inc/CatchThemesThemePlugin.php:443
+#: ../admin/inc/CatchThemesThemePlugin.php:444
 msgctxt "Plugin Installer"
 msgid "Catch Plugins"
 msgstr ""
 
-#: ../admin/inc/CatchThemesThemePlugin.php:487
+#: ../admin/inc/CatchThemesThemePlugin.php:488
 #, php-format
 msgid ""
 "You can use any of our free plugins or premium plugins from <a href=\"%s\" "
@@ -164,57 +65,21 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: ../admin/inc/core.php:41 ../admin/inc/core.php:44
-msgid "Dashboard"
-msgstr ""
-
-#: ../admin/inc/core.php:41
-msgid "Catch Web Tools"
-msgstr ""
-
-#: ../admin/inc/core.php:46
-msgid "Webmasters"
-msgstr ""
-
-#: ../admin/inc/core.php:48
-msgid "Catch IDs"
-msgstr ""
-
-#: ../admin/inc/core.php:54
-msgid "Custom CSS"
-msgstr ""
-
-#: ../admin/inc/core.php:57
-msgid "Social Icons"
-msgstr ""
-
-#: ../admin/inc/core.php:59
-msgid "Open Graph"
-msgstr ""
-
-#: ../admin/inc/core.php:61
-msgid "SEO"
-msgstr ""
-
-#: ../admin/inc/core.php:63
-msgid "To Top"
-msgstr ""
-
-#: ../admin/modules/custom-css.php:39
+#: ../admin/modules/custom-css.php:40
 msgid "CSS Tutorial"
 msgstr ""
 
-#: ../admin/modules/dashboard.php:43 ../admin/modules/dashboard.php:117
-#: ../admin/modules/dashboard.php:157 ../admin/modules/dashboard.php:191
-#: ../admin/modules/dashboard.php:226 ../admin/modules/dashboard.php:265
-#: ../admin/modules/dashboard.php:331
+#: ../admin/modules/dashboard.php:44 ../admin/modules/dashboard.php:118
+#: ../admin/modules/dashboard.php:158 ../admin/modules/dashboard.php:192
+#: ../admin/modules/dashboard.php:227 ../admin/modules/dashboard.php:266
+#: ../admin/modules/dashboard.php:329
 msgid "Deactivate"
 msgstr ""
 
-#: ../admin/modules/dashboard.php:47 ../admin/modules/dashboard.php:121
-#: ../admin/modules/dashboard.php:161 ../admin/modules/dashboard.php:195
-#: ../admin/modules/dashboard.php:230 ../admin/modules/dashboard.php:274
-#: ../admin/modules/dashboard.php:335
+#: ../admin/modules/dashboard.php:48 ../admin/modules/dashboard.php:122
+#: ../admin/modules/dashboard.php:162 ../admin/modules/dashboard.php:196
+#: ../admin/modules/dashboard.php:231 ../admin/modules/dashboard.php:275
+#: ../admin/modules/dashboard.php:333
 msgid "Activate"
 msgstr ""
 
@@ -225,7 +90,7 @@ msgid ""
 "above. For further detail, please visit this %1$slink%2$s"
 msgstr ""
 
-#: ../admin/modules/dashboard.php:455
+#: ../admin/modules/dashboard.php:453
 #, php-format
 msgid ""
 "Caution!!! You do not have the current version of WordPress installed. The "
@@ -233,18 +98,18 @@ msgid ""
 "%3$shere%4$s."
 msgstr ""
 
-#: ../admin/modules/opengraph.php:166
+#: ../admin/modules/opengraph.php:167
 msgid "Upload"
 msgstr ""
 
-#: ../admin/modules/social-icons.php:90
+#: ../admin/modules/social-icons.php:91
 msgid " Drag and Drop CWT Social Icons widget to any sidebar"
 msgstr ""
 
-#: ../admin/modules/to-top.php:178
+#: ../admin/modules/to-top.php:179
 msgid "Insert Image"
 msgstr ""
 
-#: ../admin/modules/to-top.php:178
+#: ../admin/modules/to-top.php:179
 msgid "Change Image"
 msgstr ""

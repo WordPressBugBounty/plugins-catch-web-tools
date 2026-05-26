@@ -7,6 +7,7 @@ if (! defined('ABSPATH')) exit;
  * @package Admin
  * @sub-package Admin Opengraph Display
  */
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template partial included within class method scope; variables are local, not global.
 ?>
 <?php include('header.php'); ?>
 <div id="opengraph">
@@ -36,7 +37,7 @@ if (! defined('ABSPATH')) exit;
                                 </tr>
                             </tbody>
                         </table>
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
 
                     <h3 class="option-toggle"><a href="#"><?php esc_html_e('Facebook Settings', 'catch-web-tools'); ?></a></h3>
@@ -54,7 +55,7 @@ if (! defined('ABSPATH')) exit;
                                 </tr>
                             </tbody>
                         </table>
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
 
 
@@ -147,7 +148,7 @@ if (! defined('ABSPATH')) exit;
 
                             </tbody>
                         </table>
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
 
                     <h3 class="option-toggle"><a href="#"><?php esc_html_e('Default Settings', 'catch-web-tools'); ?></a></h3>
@@ -170,7 +171,7 @@ if (! defined('ABSPATH')) exit;
                                 </tr>
                             </tbody>
                         </table>
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
 
                     <h3 class="option-toggle"><a href="#"><?php esc_html_e('Custom Settings (Only for Advanced Users)', 'catch-web-tools'); ?></a></h3>
@@ -193,7 +194,7 @@ if (! defined('ABSPATH')) exit;
                                 </tr>
                             </tbody>
                         </table>
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
 
 

@@ -33,9 +33,9 @@ function catchwebtools_get_social_icons()
 
 		$class = 'catchwebtools-social';
 
-		if ('hover' == $brand_color) {
+		if ('hover' === $brand_color) {
 			$class .= ' social-brand-hover';
-		} elseif ('hover-static' == $brand_color) {
+		} elseif ('hover-static' === $brand_color) {
 			$class .= ' social-brand-static';
 		}
 
@@ -57,32 +57,31 @@ function catchwebtools_get_social_icons()
 				continue;
 			}
 
-			if ('' != $value) {
-				if ('email' == $key) {
-					$output .= '<a class="font-awesome fa fa-solid fa-envelope' . '" target="_blank" title="' . esc_attr($key) . '" href="mailto:' . antispambot(sanitize_email(str_ireplace(['http://', 'https://'], '', $value))) . '"><span class="screen-reader-text">' . esc_attr($key) . '</span> </a>';
-				} elseif ('phone' == $key || 'handset' == $key || 'mobile' == $key) {
+			if ('' !== $value) {
+				if ('email' === $key) {
+					$output .= '<a class="font-awesome fa fa-solid fa-envelope' . '" target="_blank" title="' . esc_attr($key) . '" href="mailto:' . antispambot(sanitize_email(str_ireplace(array('http://', 'https://'), '', $value))) . '"><span class="screen-reader-text">' . esc_attr($key) . '</span> </a>';
+				} elseif ('phone' === $key || 'handset' === $key || 'mobile' === $key) {
 					$output .= '<a class="font-awesome fa fa-solid fa-' . sanitize_key($key) . '" title="' . esc_attr($key) . '" href="tel:' . preg_replace('/[^0-9\+\-\(\)\s]/', '', $value) . '"><span class="screen-reader-text">' . esc_attr($key) . '</span> </a>';
 				} elseif (
-					'feed' == $key
-					|| 'cart-shopping' == $key
-					|| 'cloud' == $key
-					|| 'link' == $key
+					'feed' === $key
+					|| 'cart-shopping' === $key
+					|| 'cloud' === $key
+					|| 'link' === $key
 				) {
-					$output .= '<a class="font-awesome fa fa-solid fa-' . sanitize_key($key) . '" target="_blank" title="' . esc_attr($key) . '" href="' . esc_attr($value) . '"><span class="screen-reader-text">' . esc_attr($value) . '</span> </a>';
+					$output .= '<a class="font-awesome fa fa-solid fa-' . sanitize_key($key) . '" target="_blank" title="' . esc_attr($key) . '" href="' . esc_url($value) . '"><span class="screen-reader-text">' . esc_html($key) . '</span> </a>';
 				} elseif (
-					'website' == $key
+					'website' === $key
 				) {
-					$output .= '<a class="font-awesome fa fa-solid fa-globe' . '" target="_blank" title="' . esc_attr($key) . '" href="' . esc_attr($value) . '"><span class="screen-reader-text">' . esc_attr($value) . '</span> </a>';
+					$output .= '<a class="font-awesome fa fa-solid fa-globe' . '" target="_blank" title="' . esc_attr($key) . '" href="' . esc_url($value) . '"><span class="screen-reader-text">' . esc_html($key) . '</span> </a>';
 				} else {
-
-					$output .= '<a class="font-awesome fa fa-brands fa-' . sanitize_key($key) . '" target="_blank" title="' . esc_attr($key) . '" href="' . esc_attr($value) . '"><span class="screen-reader-text">' . esc_attr($value) . '</span> </a>';
+					$output .= '<a class="font-awesome fa fa-brands fa-' . sanitize_key($key) . '" target="_blank" title="' . esc_attr($key) . '" href="' . esc_url($value) . '"><span class="screen-reader-text">' . esc_html($key) . '</span> </a>';
 				}
 			}
 		}
 		$output .= '
 		</div><!-- .catchwebtools-social -->';
 
-		set_transient('catchwebtools_social_transient', $social_settings, 7 * DAY_IN_SECONDS);
+		set_transient('catchwebtools_social_display', $output, 7 * DAY_IN_SECONDS);
 	}
 
 	return $output;
@@ -180,7 +179,7 @@ function catchwebtools_register_social_widget()
 	register_widget('CatchWebToolsSocialIcons');
 }
 
-$social_settings = catchwebtools_get_options('catchwebtools_social');
+$social_settings = catchwebtools_get_options('catchwebtools_social'); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Used immediately on the next two lines; this file is included inside a function scope in admin-functions.php.
 
 if ($social_settings['status']) {
 	add_action('widgets_init', 'catchwebtools_register_social_widget');

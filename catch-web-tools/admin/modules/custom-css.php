@@ -7,6 +7,7 @@ if (! defined('ABSPATH')) exit;
  * @package Admin
  * @sub-package Admin Custom CSS Display
  */
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template partial included within class method scope; variables are local, not global.
 ?>
 <?php include('header.php'); ?>
 <div id="customcss">
@@ -41,7 +42,7 @@ if (! defined('ABSPATH')) exit;
                                 </tr>
                             </tbody>
                         </table>
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
                 </div>
             </form>

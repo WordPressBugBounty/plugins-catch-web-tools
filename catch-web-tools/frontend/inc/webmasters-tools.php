@@ -106,7 +106,8 @@ function catchwebtools_feed_redirect()
 {
 	$webmaster_settings	=	catchwebtools_get_options('catchwebtools_webmaster');
 	if (isset($webmaster_settings['status']) && $webmaster_settings['status']) {
-		if (! is_feed() || (isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/feed(blitz|burner|validator)/i', $_SERVER['HTTP_USER_AGENT'])))
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- HTTP_USER_AGENT is only used for bot-name pattern matching; never output or stored.
+		if (! is_feed() || (isset($_SERVER['HTTP_USER_AGENT']) && preg_match('/feed(blitz|burner|validator)/i', wp_unslash($_SERVER['HTTP_USER_AGENT']))))
 			return;
 
 		//* Don't redirect if viewing archive, search, or post comments feed

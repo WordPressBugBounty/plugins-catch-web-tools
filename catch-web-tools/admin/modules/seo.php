@@ -7,6 +7,7 @@ if (! defined('ABSPATH')) exit;
  * @package Admin
  * @sub-package Admin SEO Display
  */
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template partial included within class method scope; variables are local, not global.
 ?>
 <?php include('header.php'); ?>
 <div id="seo">
@@ -36,7 +37,7 @@ if (! defined('ABSPATH')) exit;
                                 </tr>
                             </tbody>
                         </table>
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
 
                     <h3 class="option-toggle"><a href="#"><?php esc_html_e('SEO Homepage Settings', 'catch-web-tools'); ?></a></h3>
@@ -92,7 +93,7 @@ if (! defined('ABSPATH')) exit;
                                 </tr>
                             </tbody>
                         </table>
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
                 </div>
             </form>

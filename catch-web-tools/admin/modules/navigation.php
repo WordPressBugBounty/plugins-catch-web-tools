@@ -7,6 +7,7 @@ if (! defined('ABSPATH')) exit;
  * @package Admin
  * @sub-package Navigation
  */
+// phpcs:disable WordPress.Security.NonceVerification.Recommended -- $_GET['page'] is read-only; it only controls active-tab CSS class and is never used to change state.
 ?>
 <h2 class="nav-tab-wrapper">
     <a class="nav-tab <?php echo (isset($_GET['page']) && 'catch-web-tools' == $_GET['page']) ? 'nav-tab-active' : '' ?>" id="dashboard-tab" href="<?php echo esc_url(admin_url('admin.php?page=catch-web-tools')); ?>"><?php esc_html_e('Dashboard', 'catch-web-tools'); ?></a>

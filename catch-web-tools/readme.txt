@@ -1,10 +1,11 @@
 === Catch Web Tools ===
 Contributors: catchplugins, catchthemes, sakinshrestha, pratikshrestha, maheshmaharjan
 Donate link: https://catchplugins.com/plugins/catch-web-tools/
-Tags: catch-ids, simple, admin, wp-admin, show, ids, post, page, category, media, links, tag, user, widget, seo, search engine optimization, google, alexa, bing, meta keywords, meta description, social icons, github, dribbble, twitter, facebook, googleplus, linkedin, pinterest, flickr, vimeo, youtube, tumblr, instagram, codepen, polldaddy, path, css, open graphs, posts, sidebar, image, images, to-top, arrow, button, icon, link to top, scroll, back to top, scroll to top, scroll top, scroll up, simple scroll to top
+Tags: catch ids, webmaster tools, social icons, to top, open graph
 Requires at least: 5.9
+Requires PHP: 7.4
 Tested up to: 7.0
-Stable tag: 3.2.1
+Stable tag: 3.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -167,6 +168,17 @@ When a page or post has heaps of content, visitors have to scroll down to read t
 
 
 == Changelog ==
+
+= 3.3 (Released: May 26, 2026) =
+* Security: Improved input sanitization across AJAX handlers, taxonomy fields, and social icon URLs
+* Bug Fixed: Social icons not displaying correctly due to transient cache key mismatch
+* Bug Fixed: Open Graph title output unescaped in meta tags on single posts and pages
+* Bug Fixed: Incorrect escaping function used for footer textarea in Webmaster settings
+* Bug Fixed: Catch IDs admin page permission level corrected
+* Improved: All admin buttons and labels are now translation-ready
+* Improved: Scripts now load in the footer and are versioned for proper cache-busting
+* Improved: General code quality improvements for WordPress coding standards compliance
+* Compatibility check up to version 7.0
 
 = 3.2.1 (Released: April 11, 2026) =
 * Bug Fixed: Attributes not added in script tags and conditionally rendering Comments

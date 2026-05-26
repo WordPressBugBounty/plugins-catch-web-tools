@@ -564,7 +564,7 @@ class Catchwebtools_To_Top_Admin
 	function customizer_enqueue_styles()
 	{
 
-		wp_enqueue_style('cwt_to_top_customizer_custom_style', plugin_dir_url(__FILE__) . 'css/catchwebtools-customizer.css');
+		wp_enqueue_style('cwt_to_top_customizer_custom_style', plugin_dir_url(__FILE__) . 'css/catchwebtools-customizer.css', array(), CATCHWEBTOOLS_VERSION);
 	}
 
 

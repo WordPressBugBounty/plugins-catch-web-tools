@@ -47,7 +47,7 @@ function catchwebtools_opengraph_display()
 			$final_title = ! empty($get_title) ? $get_title : the_title_attribute('echo=0');
 
 			// Add title to $output as it is never empty.
-			$output	.= '<meta property="og:title" content="' . $final_title . '"/>' . PHP_EOL;
+			$output	.= '<meta property="og:title" content="' . esc_attr($final_title) . '"/>' . PHP_EOL;
 
 			// URL
 			$get_url   = get_post_meta(get_the_ID(), 'catchwebtools_opengraph_url', true);

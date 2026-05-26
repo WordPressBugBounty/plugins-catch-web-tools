@@ -14,6 +14,7 @@ if (! defined('ABSPATH')) exit;
  * @package    To_Top
  * @subpackage To_Top/admin/partials
  */
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template partial included within class method scope; variables are local, not global.
 ?>
 
 <?php include('header.php'); ?>

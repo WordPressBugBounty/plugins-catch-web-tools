@@ -7,6 +7,7 @@ if (! defined('ABSPATH')) exit;
  * @package Admin
  * @sub-package Admin Webmaster Display
  */
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template partial included within class method scope; variables are local, not global.
 ?>
 
 <?php include('header.php'); ?>
@@ -39,7 +40,7 @@ if (! defined('ABSPATH')) exit;
                             </tbody>
                         </table>
 
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
 
                     <h3 class="option-toggle"><a href="#"><?php esc_html_e('Feed Redirect / Custom Feeds', 'catch-web-tools'); ?></a></h3>
@@ -77,7 +78,7 @@ if (! defined('ABSPATH')) exit;
                             </tbody>
                         </table>
 
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
 
                     <h3 class="option-toggle"><a href="#"><?php esc_html_e('Header and Footer Scripts', 'catch-web-tools'); ?></a></h3>
@@ -105,14 +106,14 @@ if (! defined('ABSPATH')) exit;
                                     <td>
                                         <?php
                                         $text    =    (! empty($settings['footer'])) ? $settings['footer'] : '';
-                                        echo '<textarea cols="80" rows="7" name="catchwebtools_webmaster[footer]">' . esc_html($text) . '</textarea>';
+                                        echo '<textarea cols="80" rows="7" name="catchwebtools_webmaster[footer]">' . esc_textarea($text) . '</textarea>';
                                         echo '<p class="description">' . esc_html__('The', 'catch-web-tools') . '<code>wp_footer()</code>' . esc_html__('hook executes immediately before the closing </body> tag in the document source.', 'catch-web-tools') . '</p>';
                                         ?>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
 
                     <h3 class="option-toggle"><a href="#"><?php esc_html_e('Site Verification', 'catch-web-tools'); ?></a></h3>
@@ -184,7 +185,7 @@ if (! defined('ABSPATH')) exit;
                             </tbody>
                         </table>
 
-                        <?php submit_button('Save Changes'); ?>
+                        <?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
                     </div>
                 </div>
             </form>

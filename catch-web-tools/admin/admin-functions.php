@@ -19,9 +19,9 @@ function catchwebtools_admin_enqueue_scripts($hook_suffix)
 	if (in_array($hook_suffix, $allowed_admin_hook_suffix)) {
 		wp_enqueue_media();
 
-		wp_enqueue_script('catchwebtools-plugin-options', CATCHWEBTOOLS_URL . 'admin/js/admin.js', array('jquery', 'wp-color-picker'), '2013-10-05');
+		wp_enqueue_script('catchwebtools-plugin-options', CATCHWEBTOOLS_URL . 'admin/js/admin.js', array('jquery', 'wp-color-picker'), CATCHWEBTOOLS_VERSION, true);
 
-		wp_enqueue_script('catch-ids-match-height', plugin_dir_url(__FILE__) . 'js/jquery.matchHeight.min.js', array('jquery'), '1.0', false);
+		wp_enqueue_script('catch-ids-match-height', plugin_dir_url(__FILE__) . 'js/jquery.matchHeight.min.js', array('jquery'), CATCHWEBTOOLS_VERSION, true);
 
 		// Font Awesome
 		wp_enqueue_style('cwt-font-awesome', CATCHWEBTOOLS_URL . 'css/font-awesome/css/all.min.css', array(), '6.7.2', 'all');
@@ -29,9 +29,9 @@ function catchwebtools_admin_enqueue_scripts($hook_suffix)
 
 		//CSS Styles
 
-		wp_enqueue_style('catchwebtools-plugin-css', CATCHWEBTOOLS_URL . 'admin/css/admin.css', array('wp-color-picker', 'thickbox'), '2013-10-05');
+		wp_enqueue_style('catchwebtools-plugin-css', CATCHWEBTOOLS_URL . 'admin/css/admin.css', array('wp-color-picker', 'thickbox'), CATCHWEBTOOLS_VERSION);
 
-		wp_enqueue_style('catchwebtools-plugin-dashboard-css', CATCHWEBTOOLS_URL . 'admin/css/admin-dashboard.css', false, '2013-10-05');
+		wp_enqueue_style('catchwebtools-plugin-dashboard-css', CATCHWEBTOOLS_URL . 'admin/css/admin-dashboard.css', false, CATCHWEBTOOLS_VERSION);
 
 
 
@@ -39,10 +39,11 @@ function catchwebtools_admin_enqueue_scripts($hook_suffix)
 		 * Admin Social Links
 		 * use facebook and twitter scripts only on dashboard
 		 */
-		if ('toplevel_page_catch-web-tools' == $hook_suffix) {
+		if ('toplevel_page_catch-web-tools' === $hook_suffix) {
 ?>
 			<!-- Start Social scripts -->
 			<div id="fb-root"></div>
+			<?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript -- third-party social SDK loaders cannot be enqueued via wp_enqueue_script. ?>
 			<script>
 				(function(d, s, id) {
 					var js, fjs = d.getElementsByTagName(s)[0];
@@ -53,6 +54,7 @@ function catchwebtools_admin_enqueue_scripts($hook_suffix)
 					fjs.parentNode.insertBefore(js, fjs);
 				}(document, 'script', 'facebook-jssdk'));
 			</script>
+			<?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
 			<script>
 				! function(d, s, id) {
 					var js, fjs = d.getElementsByTagName(s)[0];
@@ -71,17 +73,17 @@ function catchwebtools_admin_enqueue_scripts($hook_suffix)
 
 	//Catch Updater Scripts and Style
 	//Only add Catch Updater Scripts and Style to theme-install page and plugin-install page
-	if ('theme-install.php' == $hook_suffix || 'plugin-install.php' == $hook_suffix) {
-		wp_enqueue_script('catch-updater-admin-js', CATCHWEBTOOLS_URL . 'admin/js/catch-updater-admin.js');
+	if ('theme-install.php' === $hook_suffix || 'plugin-install.php' === $hook_suffix) {
+		wp_enqueue_script('catch-updater-admin-js', CATCHWEBTOOLS_URL . 'admin/js/catch-updater-admin.js', array('jquery'), CATCHWEBTOOLS_VERSION, true);
 
-		wp_enqueue_style('catch-updater-admin-css', CATCHWEBTOOLS_URL . 'admin/css/catch-updater-admin.css');
+		wp_enqueue_style('catch-updater-admin-css', CATCHWEBTOOLS_URL . 'admin/css/catch-updater-admin.css', array(), CATCHWEBTOOLS_VERSION);
 	}
 
 	//Catch Updater Scripts and Style
 	//Only add Catch Updater Scripts and Style to theme-install page and plugin-install page
-	if ('catch-web-tools_page_catch-web-tools-catch-ids' == $hook_suffix) {
-		wp_enqueue_script('catch-ids-js', CATCHWEBTOOLS_URL . 'admin/js/catch-ids.js');
-		wp_enqueue_style('catch-ids-css', CATCHWEBTOOLS_URL . 'admin/css/catch-ids.css');
+	if ('catch-web-tools_page_catch-web-tools-catch-ids' === $hook_suffix) {
+		wp_enqueue_script('catch-ids-js', CATCHWEBTOOLS_URL . 'admin/js/catch-ids.js', array('jquery'), CATCHWEBTOOLS_VERSION, true);
+		wp_enqueue_style('catch-ids-css', CATCHWEBTOOLS_URL . 'admin/css/catch-ids.css', array(), CATCHWEBTOOLS_VERSION);
 	}
 }
 add_action('admin_enqueue_scripts', 'catchwebtools_admin_enqueue_scripts');
@@ -94,7 +96,7 @@ require_once(CATCHWEBTOOLS_PATH . 'admin/inc/social-icons.php');
 
 require_once(CATCHWEBTOOLS_PATH . 'to-top/to-top.php');
 
-function cwt_updater()
+function catchwebtools_cwt_updater()
 {
 	global $wp_version;
 	// Disable Catch Updater module by default since version 5.5 and later
@@ -113,7 +115,7 @@ function cwt_updater()
 	}
 }
 
-add_action('admin_init', 'cwt_updater');
+add_action('admin_init', 'catchwebtools_cwt_updater');
 
 
 //Get Catch Big Image Size Threshold Status
@@ -172,7 +174,7 @@ add_action('after_setup_theme', 'catchwebtools_custom_css_migrate');
 function catchwebtools_is_active_webmaster_module($control)
 {
 	$enabled = $control->manager->get_setting('catchwebtools_webmaster[status]')->value();
-	if (1 == $enabled) {
+	if (1 === (int) $enabled) {
 		return true;
 	} else {
 		return false;

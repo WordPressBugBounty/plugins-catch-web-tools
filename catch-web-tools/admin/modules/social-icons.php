@@ -7,6 +7,7 @@ if (! defined('ABSPATH')) exit;
  * @package Admin
  * @sub-package Admin Social Icons Display
  */
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template partial included within class method scope; variables are local, not global.
 ?>
 <?php include('header.php'); ?>
 <div id="social">
@@ -77,7 +78,7 @@ if (! defined('ABSPATH')) exit;
 							</tbody>
 						</table>
 
-						<?php submit_button('Save Changes'); ?>
+						<?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
 					</div>
 
 					<h3 class="option-toggle"><a href="#"><?php esc_html_e('Social Icons Settings', 'catch-web-tools'); ?></a></h3>
@@ -202,7 +203,7 @@ if (! defined('ABSPATH')) exit;
 									<div class="icon-name">
 										<a class="font-awesome fa <?php echo esc_attr($fa_style); ?> fa-<?php echo esc_attr(sanitize_key($value['fa_class'])); ?>"
 											title="<?php echo esc_attr($value['label']); ?>"
-											href="<?php echo esc_url($href); ?>" <?php echo esc_attr($extra_attr); ?>>
+											href="<?php echo esc_url($href); ?>" <?php echo wp_kses_post($extra_attr); ?>>
 
 											<span class="screen-reader-text">
 												<?php echo esc_html($value['label']); ?>
@@ -221,7 +222,7 @@ if (! defined('ABSPATH')) exit;
 							}
 							?>
 						</div>
-						<?php submit_button('Save Changes'); ?>
+						<?php submit_button(esc_html__('Save Changes', 'catch-web-tools')); ?>
 					</div>
 				</div>
 			</form>

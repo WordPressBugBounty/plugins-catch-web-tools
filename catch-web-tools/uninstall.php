@@ -10,6 +10,8 @@
 if ( !defined( 'WP_UNINSTALL_PLUGIN' ) )
     exit();
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Uninstall script; variables are local to this file's execution context, not global scope.
+
 $options	=	array(
 	'catchwebtools_webmaster',
 	'catchwebtools_opengraph',
@@ -37,7 +39,7 @@ if ( !is_multisite() ) {
 	// For Multisite
     global $wpdb;
 
-	$blog_ids         = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
+	$blog_ids         = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching -- No WP API exists to list all blog IDs; caching is inappropriate in an uninstall context.
 	$original_blog_id = get_current_blog_id();
 
     foreach ( $blog_ids as $blog_id ) {
